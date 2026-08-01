@@ -1210,9 +1210,11 @@ main.pagina-interna.procesos-layout {
     background: rgba(250, 250, 250, 0.97);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--borde);
-    padding: 20px 16px 16px;
+    padding: 24px 5% 20px;
     max-width: none;
+    width: 100%;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .procesos-layout .cabecera-interna h1 {
@@ -1221,13 +1223,15 @@ main.pagina-interna.procesos-layout {
     letter-spacing: 2px;
     font-weight: normal;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .procesos-layout .cabecera-interna p {
     margin-bottom: 14px;
     font-size: clamp(0.8rem, 1vw, 1.1rem);
     line-height: 1.6;
-    max-width: 900px;
+    max-width: none;
+    width: 100%;
 }
 
 .procesos-layout .cabecera-interna p:last-of-type {
