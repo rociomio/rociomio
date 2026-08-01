@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BosqueGracias | Rocio Mio</title>
+    <meta name="description" content="Laboratorio de investigacion artistica, residencias y restauracion sensible en la Patagonia.">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="bosque-portal-body">
+
+    <div class="bosque-portal-layout">
+        <aside class="bosque-columna-texto">
+            <div class="bosque-texto-top">
+                <a href="index.html" class="btn-volver-portal">← Rocio Mio</a>
+                <div class="bosque-lang-toggle" role="group" aria-label="Idioma">
+                    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+                    <span class="bosque-lang-sep">|</span>
+                    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+
+            <div class="bosque-texto-cabecera">
+                <div id="bosqueCabecera"></div>
+                <div class="contenedor-etiquetas bosque-filtros" id="filtros">
+                    <button class="etiqueta-filtro activa" data-filtro="todos">todas</button>
+                    <button class="etiqueta-filtro" data-filtro="ohde">ohde</button>
+                </div>
+            </div>
+
+            <div id="bosqueTexto" class="bosque-texto-contenido"></div>
+        </aside>
+
+        <div class="bosque-columna-galeria">
+            <div id="bosqueOhdeIntro" class="bosque-ohde-intro" hidden></div>
+
+            <div id="bosque-source"></div>
+            <div id="ohde-source-collab"></div>
+            <div id="ohde-source-proceso"></div>
+
+            <section class="bosque-galeria-scroll">
+                <div id="bosqueGrid"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/bosquegracias-content.js"></script>
+    <script src="js/bosquegracias-data.js"></script>
+    <script src="js/site-i18n.js"></script>
+    <script src="js/bosquegracias-masonry.js"></script>
+    <script src="js/bosquegracias-page.js"></script>
+</body>
+</html>

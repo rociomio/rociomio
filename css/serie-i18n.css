@@ -1,0 +1,56 @@
+.serie-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: auto;
+}
+
+.serie-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.serie-lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.serie-lang-toggle button {
+    background: none;
+    border: 1px solid currentColor;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: inherit;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.serie-lang-toggle button.activa {
+    background: currentColor;
+    color: var(--serie-lang-active-fg, #fff);
+}
+
+.serie-lang-toggle--light {
+    color: #000;
+    --serie-lang-active-fg: #fff;
+}
+
+.serie-lang-toggle--dark {
+    color: #fff;
+    --serie-lang-active-fg: #000;
+}
+
+.serie-lang-sep {
+    opacity: 0.45;
+    font-size: 0.68rem;
+    user-select: none;
+}

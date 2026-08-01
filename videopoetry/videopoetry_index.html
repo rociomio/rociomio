@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videopoetry | Rocio Mio</title>
+    <link rel="stylesheet" href="../css/serie-i18n.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body, html {
+            background-color: #000000;
+            color: #ffffff;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .galeria-horizontal {
+            display: flex;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+            padding: 0 5vw;
+            gap: 2vw;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .galeria-horizontal::-webkit-scrollbar { display: none; }
+
+        .item-media {
+            height: 80vh;
+            min-width: 45vw;
+            flex-shrink: 0;
+            scroll-snap-align: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+        }
+
+        .item-media video {
+            height: 100%;
+            width: auto;
+            max-width: 90vw;
+            object-fit: contain;
+            border-radius: 2px;
+        }
+
+        .menu-inferior {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            padding: 20px 5vw;
+            z-index: 100;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            pointer-events: none;
+        }
+
+        .menu-inferior * { pointer-events: auto; }
+
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-volver {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+            transition: opacity 0.3s;
+        }
+
+        .btn-volver:hover { opacity: 0.6; }
+
+        .titulo-serie {
+            font-size: clamp(1.4rem, 2.5vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .texto-concepto {
+            font-size: clamp(0.85rem, 1vw, 1.1rem);
+            line-height: 1.5;
+            color: #e0e0e0;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+            max-width: 900px;
+        }
+
+        .texto-concepto p + p {
+            margin-top: 12px;
+        }
+
+        .scroll-hint-horizontal {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #aaaaaa;
+            margin-top: 4px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .link-objkt {
+            display: inline-block;
+            margin-top: 12px;
+            color: #ffffff;
+            text-decoration: none;
+            border: 1px solid #ffffff;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-shadow: none;
+        }
+
+        .link-objkt:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        @media (max-width: 768px) {
+            .menu-inferior { padding: 16px 4vw; }
+            .item-media { height: 70vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="galeria-horizontal" id="galeriaHorizontal">
+
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmVwFitE7YpjxGDn2HnW4zdDahY52go9Uz5gjuK37zx3ma/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/bafybeigw7iomkpflkkexfycrvnr6rjjxubtkqq6wjyioqhnqaabiph2vau/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmYZMww93973NR3TkPLx46yfZaoL1evsTPQmxFvprmy9KJ/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmWJRvL8psqbDmsVpUDjos6sbtzYnUvbpVae2UfQrpVJ6x/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/bafybeidefuh6s74vrjn34ny2lyua6lkiodtm7fw2mfmqs3o2w4vdngnbom/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmPWBhyjwxFUQgoJdpxVhKdiEvBwyTyBuBDaGKHAwqh8MK/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmSDByK7zGyxmvSMtKwy5VAvR2up8oDzVMhz5TEG68xJfP/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/bafybeigx5hvpenjckc3u75yf6omwkgnp7edlvgdcqmquf3pajxfyr3ueoq/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/bafybeigp7enfgaephz6bzoi6m74x7u3velbppw26wv3zlxayzx7jlpd7au/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmeFbMsSusUcNcZWffXVxYpnSmQfWv7F7mEGKKCd3WSTLq/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmQcCKTT8i1jxCAQf2iFRdB2HB2cxV2fvKRmjPsFHv5EpL/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmYZha8SanYaaB9SSCKo5T17tmVBbgTj2tSyJr4VoxLJGi/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmQayqsMCEEdLpoT8U7mGyMgKnUPTADbSk7Kp2FiNVkQYS/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/QmQcKkS6YHqzwttmvqMdnwZ4fSsNhrGE9X6xezPY4KV6MU/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/bafybeigqtneasbupfavx4jnhdc42rmuh5knqymd7rgb44rnemiiq6pftou/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/bafybeiavxcip3lpr5rtsapbta5l24d6qlq4hpnx3hwnqoarxgqavied6j4/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+        <section class="item-media">
+            <video src="https://assets.objkt.media/file/assets-003/bafybeia76qozplsopdfwlz5lw6xh5zbrmlacfrfzdbbw2xm22g5sblsd7q/artifact" autoplay loop muted playsinline preload="metadata"></video>
+        </section>
+
+    </main>
+
+    <footer class="menu-inferior">
+        <div class="header-top-row">
+            <h1 class="titulo-serie">Videopoetry</h1>
+            <div class="serie-nav-actions">
+                <div class="serie-lang-toggle serie-lang-toggle--dark" role="group" aria-label="Idioma">
+                    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+                    <span class="serie-lang-sep">|</span>
+                    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+                </div>
+                <a href="../index.html#series" class="btn-volver" data-i18n="volver">[ VOLVER AL ORIGEN ]</a>
+            </div>
+        </div>
+        <div class="texto-concepto">
+            <p>Video as poetry, code, and real-time research. Analog machines, CRT installations, live visual direction, spatial and collaborative experiences.</p>
+            <p>El video como poesia, codigo e investigacion en tiempo real. Maquinas analogicas e instalaciones CRT, direccion visual en vivo, experiencias espaciales y colaborativas.</p>
+        </div>
+        <a href="https://objkt.com/curations/objkt/videopoetry-4b4c0796" target="_blank" rel="noopener" class="link-objkt" data-i18n="collectObjkt">collect at objkt</a>
+        <span class="scroll-hint-horizontal" data-i18n="scrollVideos">→ gira la rueda sobre los videos</span>
+    </footer>
+
+    <script src="../js/series-ui-content.js"></script>
+    <script src="../js/site-i18n.js"></script>
+    <script src="../js/galeria-horizontal.js?v=6"></script>
+</body>
+</html>
