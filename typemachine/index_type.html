@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeMachine Series | Rocio Mio</title>
+    <link rel="stylesheet" href="../css/serie-i18n.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body, html {
+            background-color: #ffffff;
+            color: #000000;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .portal-layout {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .columna-texto {
+            width: 32vw;
+            height: 100vh;
+            padding: 40px 3vw;
+            border-right: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+
+        .btn-volver {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            transition: opacity 0.3s;
+            display: inline-block;
+        }
+
+        .btn-volver:hover { opacity: 0.5; }
+
+        .texto-contenido {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .bloque-serie {
+            border-bottom: 1px dashed #000;
+            padding-bottom: 30px;
+        }
+
+        .bloque-serie:last-child { border-bottom: none; }
+
+        .bloque-serie h1, .bloque-serie h2 {
+            font-size: clamp(1.2rem, 1.8vw, 2rem);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .bloque-serie p {
+            font-size: clamp(0.75rem, 0.85vw, 0.95rem);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: left;
+            color: #222;
+        }
+
+        .nota-fuego {
+            font-style: italic;
+            font-weight: bold;
+            background: #f0f0f0;
+            padding: 8px 12px;
+            border-left: 2px solid #000;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .link-objkt {
+            display: inline-block;
+            margin-top: 10px;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #000;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .link-objkt:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .galeria-obras {
+            --panel-w: 68vw;
+            width: var(--panel-w);
+            height: 100vh;
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+            overscroll-behavior: contain;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .galeria-obras::-webkit-scrollbar { display: none; }
+
+        .item-obra {
+            width: var(--panel-w);
+            min-width: var(--panel-w);
+            height: 100vh;
+            flex-shrink: 0;
+            display: grid;
+            grid-template-rows: minmax(0, 1fr) auto;
+            grid-template-columns: 1fr;
+            align-items: center;
+            justify-items: center;
+            padding: 1vh 1vw;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .item-obra img, .item-obra video {
+            grid-row: 1;
+            place-self: center;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .caption-obra {
+            grid-row: 2;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 24px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            body, html { overflow: auto; }
+            .portal-layout { flex-direction: column; height: auto; min-height: 100vh; }
+            .columna-texto {
+                width: 100vw;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #000;
+                padding: 30px 20px;
+            }
+            .galeria-obras {
+                --panel-w: 100vw;
+                width: var(--panel-w);
+                height: 70vh;
+            }
+            .item-obra {
+                width: var(--panel-w);
+                min-width: var(--panel-w);
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="portal-layout">
+
+        <aside class="columna-texto">
+            <div class="serie-top-row">
+                <a href="../index.html#series" class="btn-volver" data-i18n="volver">[ VOLVER AL ORIGEN ]</a>
+                <div class="serie-lang-toggle serie-lang-toggle--light" role="group" aria-label="Idioma">
+                    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+                    <span class="serie-lang-sep">|</span>
+                    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+
+            <div class="texto-contenido">
+
+                <article class="bloque-serie">
+                    <h1>1. TypeMachine</h1>
+                    <p>Mechanical patterns: visual explorations created with a typewriter, where the rhythm of signs and lines reveals a minimal choreography of repetition, pause, and typographic variation. Physical works, unique pieces on mate paper 120 gr.</p>
+                    <p>Scanned without mediation, these pieces appear in their rawest state: the surface as the immediate archive of a physical encounter between machine, paper, and body.</p>
+                    <p>Minted as 1/1 editions -with a few in open edition- they preserve the singularity of the repeated mark, underscoring that within repetition there is never absolute uniformity, but rather infinite variations. TypeMachine #9.</p>
+                    <div class="nota-fuego">This collection original papers were burned in the fires of summer 2026.</div>
+                    <br>
+                    <a href="https://objkt.com/collections/KT1Jb7YKLVvYKNB3HfQo8QuYZgaNc3LM31ga" target="_blank" rel="noopener" class="link-objkt">Collect TypeMachine at objkt</a>
+                </article>
+
+                <article class="bloque-serie">
+                    <h2>2. Flickering TypeMachine (Ongoing Evolution)</h2>
+                    <p>Like an analog-digital development, each take becomes a dance between human, pattern, writer machine, and the glitch in the act of scanning. Fragility of transmission, the materiality of error, and recording devices as expressive tools.</p>
+                    <p>This serie revisits the original papers through a new process of digitization.</p>
+                    <p>A scanner as a portal, with movement and light, on patterns from Type Machine Serie. A research of patterns as visual narratives of the fragility of error in touchable formats: light in motion and the physical manipulation of the scan generate unrepeatable distortions.</p>
+                    <p>Digitization itself becomes a central part of the work-a bridge of flows between body, machine, and light-where the tactile and the intangible coexist on the same plane.</p>
+                    <p>The endless movement /////////////////////(of life) proposes that motion has to do - more related //to flow in a bridge between human and machine.</p>
+                    <p><strong>Format:</strong> write machine and scanner</p>
+                    <a href="https://objkt.com/collections/KT1BesfhWimdaEqbngHaH9DHz8DNun6PCE5R" target="_blank" rel="noopener" class="link-objkt">Collect Flickering TypeMachine at objkt</a>
+                </article>
+
+                <article class="bloque-serie">
+                    <h2>3. Generative TypeMachine</h2>
+                    <p>The third series imagines a typewriter beyond its mechanical limits, transformed through a generative AI engine trained with the images from the previous two bodies of work.</p>
+                    <p>Here, repetition is not only a gesture of the hand or a distortion of light, but also an algorithmic process that reinvents itself endlessly.</p>
+                    <p>The machine hallucinates characters that never existed, weaving textures of light and matter as if they belonged to a forgotten alphabet. In this dialogue between the analog trace, the digital glitch, and artificial interpretation, a new sensibility emerges-where repetition becomes a method of digital translation, between human memory and machinic imagination.</p>
+                    <a href="https://objkt.com/collections/KT1JQo6HjfbFYkRtuBx6EPKoY67PsSFMfNXT" target="_blank" rel="noopener" class="link-objkt">Collect Generative TypeMachine at objkt</a>
+                </article>
+
+            </div>
+        </aside>
+
+        <section class="galeria-obras" id="galeriaType">
+
+            <article class="item-obra">
+                <img src="typmachine01.webp" alt="TypeMachine #1" loading="lazy">
+                <span class="caption-obra">TypeMachine #1 - Raw Scan</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="typemachine10.webp" alt="TypeMachine #10" loading="lazy">
+                <span class="caption-obra">TypeMachine #10</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="typmechine06.webp" alt="TypeMachine #6" loading="lazy">
+                <span class="caption-obra">TypeMachine #6</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="flickering.webp" alt="Flickering TypeMachine" loading="lazy">
+                <span class="caption-obra">Flickering TypeMachine - Scanner in motion</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="generative (2).webp" alt="Generative TypeMachine 2" loading="lazy">
+                <span class="caption-obra">Generative TypeMachine #2</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="all that solid is also sensitive matter.webp" alt="All That Solid Is Also Sensitive Matter" loading="lazy">
+                <span class="caption-obra">All That Solid Is Also Sensitive Matter</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="frenesi.webp" alt="Frenesi" loading="lazy">
+                <span class="caption-obra">Frenesi</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="midnight silence interrupted by the whisper of color.webp" alt="Midnight Silence" loading="lazy">
+                <span class="caption-obra">Midnight Silence Interrupted by the Whisper of Color</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="move. stop. move. move. don't stop.webp" alt="Move. Stop. Move." loading="lazy">
+                <span class="caption-obra">Move. Stop. Move. Move. Don't Stop</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="no turning back after you see my inner self.webp" alt="No Turning Back" loading="lazy">
+                <span class="caption-obra">No Turning Back After You See My Inner Self</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="overflowing.Line.webp" alt="Overflowing Line" loading="lazy">
+                <span class="caption-obra">Overflowing Line</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="searching for bits, again.webp" alt="Searching for Bits, Again" loading="lazy">
+                <span class="caption-obra">Searching for Bits, Again</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="spectrum of root life.webp" alt="Spectrum of Root Life" loading="lazy">
+                <span class="caption-obra">Spectrum of Root Life</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Syntax in Flight.webp" alt="Syntax in Flight" loading="lazy">
+                <span class="caption-obra">Syntax in Flight</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="where the river of pixels longs to turn into language, yet dissolves back into pure beauty.webp" alt="Where the River of Pixels" loading="lazy">
+                <span class="caption-obra">Where the River of Pixels Longs to Turn into Language</span>
+            </article>
+
+        </section>
+
+    </main>
+
+    <span class="scroll-hint" data-i18n="scrollSinClic">→ gira la rueda (sin clic)</span>
+
+    <script src="../js/series-ui-content.js"></script>
+    <script src="../js/site-i18n.js"></script>
+    <script src="../js/galeria-horizontal.js?v=8"></script>
+</body>
+</html>

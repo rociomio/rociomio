@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Wheels | Rocio Mio</title>
+    <link rel="stylesheet" href="../css/serie-i18n.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body, html {
+            background-color: #ffffff;
+            color: #000000;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .portal-layout {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .columna-texto {
+            width: 30vw;
+            height: 100vh;
+            padding: 40px 3vw;
+            border-right: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+
+        .btn-volver {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-volver:hover { opacity: 0.5; }
+
+        .texto-contenido { margin-bottom: auto; }
+
+        .texto-contenido h1 {
+            font-size: clamp(1.5rem, 2.5vw, 3rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .texto-contenido p {
+            font-size: clamp(0.8rem, 1vw, 1.1rem);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .link-objkt {
+            display: inline-block;
+            margin-top: 15px;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .link-objkt:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .galeria-obras {
+            --panel-w: 70vw;
+            width: var(--panel-w);
+            height: 100vh;
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+            overscroll-behavior: contain;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .galeria-obras::-webkit-scrollbar { display: none; }
+
+        .item-obra {
+            width: var(--panel-w);
+            min-width: var(--panel-w);
+            height: 100vh;
+            flex-shrink: 0;
+            display: grid;
+            grid-template-rows: minmax(0, 1fr) auto;
+            grid-template-columns: 1fr;
+            align-items: center;
+            justify-items: center;
+            padding: 1vh 1vw;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .item-obra img,
+        .item-obra video {
+            grid-row: 1;
+            place-self: center;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .caption-obra {
+            grid-row: 2;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 24px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            body, html { overflow: auto; }
+            .portal-layout { flex-direction: column; height: auto; min-height: 100vh; }
+            .columna-texto {
+                width: 100vw;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #000;
+                padding: 30px 20px;
+            }
+            .galeria-obras {
+                --panel-w: 100vw;
+                width: var(--panel-w);
+                height: 70vh;
+            }
+            .item-obra {
+                width: var(--panel-w);
+                min-width: var(--panel-w);
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="portal-layout">
+
+        <aside class="columna-texto">
+            <div class="serie-top-row">
+                <a href="../index.html#series" class="btn-volver" data-i18n="volver">[ VOLVER AL ORIGEN ]</a>
+                <div class="serie-lang-toggle serie-lang-toggle--light" role="group" aria-label="Idioma">
+                    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+                    <span class="serie-lang-sep">|</span>
+                    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+
+            <div class="texto-contenido">
+                <h1>Energy Wheels</h1>
+                <p>"Energy Wheels" is a series of family photographs embroidered with energy. The photo was taken by my grandfather Manuel in 1960. I found the negatives in my grandmother's wardrobe when she died. I never met Manuel, but I have their images, the camera, and some furniture, the most precious being a desk, his studio desk.</p>
+                <p>Manuel had two analog cameras, with which he took photographs in 35mm and 120mm. Many of those frames were never seen on paper since developing was very expensive at that time. The negatives, developed in cyanotype, are unique originals from his 120mm films.</p>
+                <p>This entire series-both the negatives and the physical artworks-was completely lost in January 2026 during the fire at Bosquegracias Land and HomeStudio.</p>
+
+                <a href="https://objkt.com/curations/objkt/energy-wheels-bded0992" target="_blank" rel="noopener" class="link-objkt" data-i18n="collectObjkt">collect at objkt</a>
+            </div>
+        </aside>
+
+        <section class="galeria-obras" aria-label="Galeria Energy Wheels">
+
+            <article class="item-obra">
+                <video src="ruedas de energia.mp4" autoplay loop muted playsinline></video>
+                <span class="caption-obra">Energy Wheels - video</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Energy wheels.webp" alt="Energy Wheels" loading="lazy">
+                <span class="caption-obra">Energy Wheels</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="artifact.webp" alt="Artifact" loading="lazy">
+                <span class="caption-obra">Artifact</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Hanged memories.webp" alt="Hanged Memories" loading="lazy">
+                <span class="caption-obra">Hanged Memories</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Infinito.webp" alt="Infinito" loading="lazy">
+                <span class="caption-obra">Infinito</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Jesusa.webp" alt="Jesusa" loading="lazy">
+                <span class="caption-obra">Jesusa</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="liquen.webp" alt="Liquen" loading="lazy">
+                <span class="caption-obra">Liquen</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Manuel_y_su sombra.webp" alt="Manuel y su sombra" loading="lazy">
+                <span class="caption-obra">Manuel y su sombra</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Mercado.webp" alt="Mercado" loading="lazy">
+                <span class="caption-obra">Mercado</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Migration.webp" alt="Migration" loading="lazy">
+                <span class="caption-obra">Migration</span>
+            </article>
+
+        </section>
+
+    </main>
+
+    <span class="scroll-hint" data-i18n="scrollImagenes">→ gira la rueda sobre las imagenes</span>
+
+    <script src="../js/series-ui-content.js"></script>
+    <script src="../js/site-i18n.js"></script>
+    <script src="../js/galeria-horizontal.js?v=8"></script>
+</body>
+</html>

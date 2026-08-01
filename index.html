@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocio Mio | Artista Visual</title>
+    <meta name="description" content="Portfolio de Rocio Mio - videos glitch, GIFs, pigmentos naturales y tecnicas analogicas digitalizadas.">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="landing-body">
+
+    <header>
+        <nav>
+            <a href="#intro" class="logo-nav">Rocio Mio</a>
+            <a href="#series">Series</a>
+            <a href="#procesos" data-i18n="nav.procesos">Procesos</a>
+            <a href="#bosquegracias">BosqueGracias</a>
+            <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+            <div class="landing-lang-toggle" role="group" aria-label="Idioma">
+                <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+                <span class="landing-lang-sep">|</span>
+                <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="snap">
+
+        <section id="intro" class="full">
+            <h1>Rocio Mio</h1>
+            <p class="manifesto" data-i18n="intro.manifesto">
+                Artista visual. Trabajo con videos glitch, GIFs, pigmentos naturales y tecnicas analogicas
+                que atraviesan multiples procesos de digitalizacion para convertirse en obra digital.
+                Exploro el territorio, el material y el error como lenguaje.
+            </p>
+            <span class="scroll-hint" data-i18n="intro.scroll">↓ deslizar</span>
+        </section>
+
+        <section id="series" class="full series-carrusel-wrap">
+            <button type="button" class="carrusel-btn carrusel-btn--prev" id="seriesPrev" data-i18n-aria="series.prev" aria-label="Serie anterior">←</button>
+
+            <div class="slider-proyectos" id="seriesSlider">
+
+                <a href="videopoetry/videopoetry_index.html" class="slide-proyecto slide-serie">
+                    <img src="videopoetry/portada videopoetry.webp" alt="Videopoetry" class="img-slide">
+                    <div class="info-slide">
+                        <h3>Videopoetry</h3>
+                        <span class="etiqueta" data-i18n="series.videopoetry">Video · poesia · codigo · glitch analogico</span>
+                    </div>
+                </a>
+
+                <a href="ruedas de energia/index_ruedas.html" class="slide-proyecto slide-serie">
+                    <img src="ruedas de energia/Energy wheels.webp" alt="Energy Wheels" class="img-slide">
+                    <div class="info-slide">
+                        <h3>Energy Wheels</h3>
+                        <span class="etiqueta" data-i18n="series.energyWheels">Cianotipo · bordado · archivo familiar</span>
+                    </div>
+                </a>
+
+                <a href="mixed faces/index_mixed_faces.html" class="slide-proyecto slide-serie">
+                    <img src="mixed faces/Holy Mother and Lamb.webp" alt="Mixed Faces" class="img-slide">
+                    <div class="info-slide">
+                        <h3>Mixed Faces</h3>
+                        <span class="etiqueta" data-i18n="series.mixedFaces">Diapositivas · collage · archivo encontrado</span>
+                    </div>
+                </a>
+
+                <a href="still a moment/index_still_a_moment.html" class="slide-proyecto slide-serie">
+                    <img src="still a moment/portada.webp" alt="Still a Moment" class="img-slide">
+                    <div class="info-slide">
+                        <h3>Still a Moment</h3>
+                        <span class="etiqueta">Live glitch · .jpg · 1/24s</span>
+                    </div>
+                </a>
+
+                <a href="typemachine/index_type.html" class="slide-proyecto slide-serie">
+                    <img src="typemachine/typmachine01.webp" alt="TypeMachine" class="img-slide">
+                    <div class="info-slide">
+                        <h3>TypeMachine</h3>
+                        <span class="etiqueta" data-i18n="series.typemachine">Maquina de escribir · scanner · IA</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <button type="button" class="carrusel-btn carrusel-btn--next" id="seriesNext" data-i18n-aria="series.next" aria-label="Serie siguiente">→</button>
+        </section>
+
+        <section id="procesos" class="full seccion-procesos-home">
+            <div class="procesos-home-inner">
+                <h2 data-i18n="procesos.titulo">Procesos e investigacion</h2>
+                <p data-i18n="procesos.texto">Bitacora visual de extraccion de tintes, exploracion de materialidades y el vinculo directo con el territorio. Filtra por carpeta para ver cada linea de investigacion.</p>
+
+                <div class="contenedor-etiquetas contenedor-etiquetas--home">
+                    <a href="procesos.html" class="etiqueta-filtro etiqueta-link" data-i18n="procesos.todos">todos</a>
+                    <a href="procesos.html?filtro=ecoprints" class="etiqueta-filtro etiqueta-link">ecoprints</a>
+                    <a href="procesos.html?filtro=pigmentos" class="etiqueta-filtro etiqueta-link">pigmentos</a>
+                    <a href="procesos.html?filtro=post%20incendio" class="etiqueta-filtro etiqueta-link">post incendio</a>
+                    <a href="procesos.html?filtro=revelados" class="etiqueta-filtro etiqueta-link">revelados</a>
+                </div>
+
+                <div class="preview-procesos-grid">
+                    <a href="procesos.html?filtro=post%20incendio" class="preview-item">
+                        <img src="pigmento/post incendio/cipres0625.webp" alt="Post incendio">
+                        <span class="tag">post incendio</span>
+                    </a>
+                    <a href="procesos.html?filtro=pigmentos" class="preview-item">
+                        <img src="pigmento/pigmentos/Maqui_002__Everyday_Color-bosquegracias.webp" alt="Pigmentos">
+                        <span class="tag">pigmentos</span>
+                    </a>
+                    <a href="procesos.html?filtro=ecoprints" class="preview-item">
+                        <img src="pigmento/ECOPRINTS/Ecoprint_Maqui_003-23.webp" alt="Ecoprints">
+                        <span class="tag">ecoprints</span>
+                    </a>
+                    <a href="procesos.html?filtro=revelados" class="preview-item">
+                        <img src="pigmento/revelados/Wild_Blue.webp" alt="Revelados">
+                        <span class="tag">revelados</span>
+                    </a>
+                </div>
+
+                <a href="procesos.html" class="btn-ver-mas" data-i18n="procesos.btn">Explorar bitacora completa →</a>
+            </div>
+        </section>
+
+        <section id="bosquegracias" class="full seccion-bosque-home">
+            <div class="bosque-home-inner">
+                <h2>BosqueGracias</h2>
+                <p data-i18n="bosque.texto">Laboratorio de investigacion artistica, residencias y restauracion en la Patagonia. Archivo visual de ediciones, procesos y colaboraciones en Epuyen.</p>
+
+                <div class="contenedor-etiquetas contenedor-etiquetas--home">
+                    <a href="bosquegracias.html" class="etiqueta-filtro etiqueta-link" data-i18n="bosque.todas">todas</a>
+                    <a href="bosquegracias.html?filtro=ohde" class="etiqueta-filtro etiqueta-link">ohde</a>
+                </div>
+
+                <a href="bosquegracias.html" class="bosque-home-portada">
+                    <img src="portada index bosquegracias.png" data-i18n-alt="bosque.portadaAlt" alt="BosqueGracias - residencias y laboratorio en la Patagonia">
+                </a>
+
+                <a href="bosquegracias.html" class="btn-ver-mas" data-i18n="bosque.btn">Explorar BosqueGracias →</a>
+            </div>
+        </section>
+
+        <section id="contacto" class="full seccion-contacto">
+            <div class="contacto-layout">
+                <div class="contacto-texto">
+                    <h2 data-i18n="contacto.titulo">Contacto</h2>
+                    <div data-i18n-block="es">
+                        <p data-i18n="contacto.textoEs">Disponible para direccion visual en vivo, instalaciones CRT, desarrollo de proyectos curatoriales, colaboraciones sonoras y consultas sobre la coleccion o residencias en BosqueGracias.</p>
+                    </div>
+                    <div data-i18n-block="en" hidden>
+                        <p class="contacto-subtitulo" data-i18n="contacto.subtitulo">Open for collaborations</p>
+                        <p data-i18n="contacto.textoEn">Available for live visual direction, CRT installations, curatorial projects, sound collaborations, and inquiries regarding the collection or BosqueGracias residencias.</p>
+                    </div>
+                    <a href="mailto:bosquegracias@gmail.com" class="contacto-email">[ bosquegracias@gmail.com ]</a>
+                </div>
+
+                <div class="contacto-links">
+                    <div class="contacto-grupo">
+                        <h3 data-i18n="contacto.redes">Redes</h3>
+                        <ul>
+                            <li><a href="https://x.com/BosqueGracias" target="_blank" rel="noopener">x bosquegracias</a></li>
+                            <li><a href="https://x.com/rociomiobosque" target="_blank" rel="noopener">x rociomio</a></li>
+                            <li><a href="https://instagram.com/bosquegracias" target="_blank" rel="noopener">instagram</a></li>
+                            <li><a href="https://www.teztree.com/bosquegracias" target="_blank" rel="noopener">teztree</a></li>
+                            <li><a href="https://linktr.ee/rociomio" target="_blank" rel="noopener">linktree</a></li>
+                        </ul>
+                    </div>
+                    <div class="contacto-grupo">
+                        <h3>Onchain art</h3>
+                        <ul>
+                            <li><a href="https://objkt.com/@bosquegracias/created" target="_blank" rel="noopener">objkt bosquegracias</a></li>
+                            <li><a href="https://objkt.com/@rociomio/created" target="_blank" rel="noopener">objkt rociomio</a></li>
+                            <li><a href="https://verse.works/series/tactile-studies-of-the-synthetic-landscape-by-canek-zapata-rocio-mio" target="_blank" rel="noopener">verse rociomio</a></li>
+                            <li><a href="https://drop.art/bm/7jRDpPGSXLGyDwWFIYaqTh" target="_blank" rel="noopener">drop.art rociomio</a></li>
+                            <li><a href="https://drop.art/u/tz1Ukp188yBFu4NBgkELqqnUSXa9g1K4q1Xa/created" target="_blank" rel="noopener">drop.art bosquegracias</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/landing-content.js"></script>
+    <script src="js/site-i18n.js"></script>
+    <script src="js/intro-background.js"></script>
+    <script src="js/series-carousel.js"></script>
+</body>
+</html>

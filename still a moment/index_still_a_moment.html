@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Still a Moment | Rocio Mio</title>
+    <link rel="stylesheet" href="../css/serie-i18n.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body, html {
+            background-color: #000000;
+            color: #ffffff;
+            height: 100%;
+        }
+
+        /* Galeria vertical - scroll tradicional */
+        .galeria-vertical {
+            width: 100vw;
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .item-media {
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .item-media img,
+        .item-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Info al pie - no tapa el video */
+        .menu-inferior {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            padding: 20px 5vw;
+            z-index: 100;
+            background: transparent;
+            pointer-events: none;
+        }
+
+        .menu-inferior * { pointer-events: auto; }
+
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-volver {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+            transition: opacity 0.3s;
+        }
+
+        .btn-volver:hover { opacity: 0.6; }
+
+        .titulo-serie {
+            font-size: clamp(1.4rem, 2.5vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .bloque-desplegable {
+            margin-top: 10px;
+            max-height: 200px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+        }
+
+        .texto-concepto {
+            font-size: clamp(0.8rem, 1vw, 1rem);
+            line-height: 1.5;
+            color: rgba(255,255,255,0.85);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+            max-width: 900px;
+        }
+
+        .texto-concepto p { margin-bottom: 8px; }
+
+        .etiqueta-tecnica {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .link-drop {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            text-shadow: none;
+        }
+
+        .link-drop:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .scroll-hint-vertical {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-top: 6px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .menu-inferior.colapsado .bloque-desplegable {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .menu-inferior { padding: 16px 4vw; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="galeria-vertical" id="galeriaScroll">
+
+        <section class="item-media">
+            <video src="drop_land.mp4" autoplay loop muted playsinline></video>
+        </section>
+
+        <section class="item-media">
+            <img src="ultima_resized.webp" alt="Ultima" loading="lazy">
+        </section>
+
+        <section class="item-media">
+            <video src="emotional with screens_resized.mp4" autoplay loop muted playsinline></video>
+        </section>
+
+        <section class="item-media">
+            <img src="emotional 2.webp" alt="Emotional 2" loading="lazy">
+        </section>
+
+        <section class="item-media">
+            <img src="drop1.webp" alt="Drop 1" loading="lazy">
+        </section>
+
+        <section class="item-media">
+            <img src="cada_pixel.webp" alt="Cada Pixel" loading="lazy">
+        </section>
+
+        <section class="item-media">
+            <img src="formato_infinito_resized.webp" alt="Formato Infinito" loading="lazy">
+        </section>
+
+    </main>
+
+    <footer class="menu-inferior" id="menuInferior">
+        <div class="header-top-row">
+            <h1 class="titulo-serie">Still a Moment</h1>
+            <div class="serie-nav-actions">
+                <div class="serie-lang-toggle serie-lang-toggle--dark" role="group" aria-label="Idioma">
+                    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+                    <span class="serie-lang-sep">|</span>
+                    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+                </div>
+                <a href="../index.html#series" class="btn-volver" data-i18n="volver">[ VOLVER AL ORIGEN ]</a>
+            </div>
+        </div>
+
+        <div class="bloque-desplegable">
+            <div class="texto-concepto">
+                <p>"Still a moment" is a collection of .jpgs extracted from live video glitches, generated using analog machines and a vintage titler. Each signal interference is ephemeral, only possible to be remembered through the act of recording.</p>
+                <p>Each piece is a frame rescued from chaos - a .jpg extracted from a raw electric signal that exists for 1/24 of a second.</p>
+            </div>
+            <span class="etiqueta-tecnica">Analog Machines · Vintage Titler · Live Video Glitch · 1/24s Signal</span>
+            <a href="https://drop.art/bm/1O2zmZo6BGYuc49c5l2n3K" target="_blank" rel="noopener" class="link-drop">View Collection on Drop.art</a>
+        </div>
+
+        <span class="scroll-hint-vertical" data-i18n="scrollVertical">↓ gira la rueda del mouse</span>
+    </footer>
+
+    <script src="../js/series-ui-content.js"></script>
+    <script src="../js/site-i18n.js"></script>
+    <script>
+        const galeria = document.getElementById('galeriaScroll');
+        const menu = document.getElementById('menuInferior');
+
+        galeria.addEventListener('scroll', () => {
+            menu.classList.toggle('colapsado', galeria.scrollTop > 80);
+        });
+    </script>
+
+</body>
+</html>

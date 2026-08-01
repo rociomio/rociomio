@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixed Faces | Rocio Mio</title>
+    <link rel="stylesheet" href="../css/serie-i18n.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body, html {
+            background-color: #000000;
+            color: #ffffff;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .portal-layout {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+        }
+
+        .columna-texto {
+            width: 30vw;
+            height: 100vh;
+            padding: 40px 3vw;
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            background: #000000;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+
+        .btn-volver {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-volver:hover { opacity: 0.5; }
+
+        .texto-contenido { margin-bottom: auto; }
+
+        .texto-contenido h1 {
+            font-size: clamp(1.5rem, 2.5vw, 3rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .texto-contenido p {
+            font-size: clamp(0.8rem, 1vw, 1.1rem);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #e0e0e0;
+        }
+
+        .link-objkt {
+            display: inline-block;
+            margin-top: 15px;
+            color: #ffffff;
+            text-decoration: none;
+            border: 1px solid #ffffff;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .link-objkt:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .galeria-obras {
+            --panel-w: 70vw;
+            width: var(--panel-w);
+            height: 100vh;
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+            overscroll-behavior: contain;
+            background: #000000;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .galeria-obras::-webkit-scrollbar { display: none; }
+
+        .item-obra {
+            width: var(--panel-w);
+            min-width: var(--panel-w);
+            height: 100vh;
+            flex-shrink: 0;
+            display: grid;
+            grid-template-rows: minmax(0, 1fr) auto;
+            grid-template-columns: 1fr;
+            align-items: center;
+            justify-items: center;
+            padding: 1vh 1vw;
+            overflow: hidden;
+            box-sizing: border-box;
+            background: #000000;
+        }
+
+        .item-obra img {
+            grid-row: 1;
+            place-self: center;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .caption-obra {
+            grid-row: 2;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #aaaaaa;
+            text-align: center;
+            max-width: 90%;
+        }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 24px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #666;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            body, html { overflow: auto; }
+            .portal-layout { flex-direction: column; height: auto; min-height: 100vh; }
+            .columna-texto {
+                width: 100vw;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #333;
+                padding: 30px 20px;
+            }
+            .galeria-obras {
+                --panel-w: 100vw;
+                width: var(--panel-w);
+                height: 70vh;
+            }
+            .item-obra {
+                width: var(--panel-w);
+                min-width: var(--panel-w);
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="portal-layout">
+
+        <aside class="columna-texto">
+            <div class="serie-top-row">
+                <a href="../index.html#series" class="btn-volver" data-i18n="volver">[ VOLVER AL ORIGEN ]</a>
+                <div class="serie-lang-toggle serie-lang-toggle--dark" role="group" aria-label="Idioma">
+                    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+                    <span class="serie-lang-sep">|</span>
+                    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+
+            <div class="texto-contenido">
+                <h1>Mixed Faces</h1>
+                <p>Analog practice, found archive, and sensitive digitization.</p>
+                <p>Since 2023, Mixed Faces gathers a collection of slides rescued from trash, flea markets, and garages: discarded photographic fragments holding stories on the verge of oblivion.</p>
+                <p>Through the physical superposition of frames, transparencies, and interventions with natural elements-such as leaf skeletons and organic veils-the series merges distant worlds onto a single plane. The sacred, the domestic, and the botanical collide over the analog emulsion.</p>
+                <p>Passing through the scanner, these compositions acquire a new digital materiality. The light that once projected these lost memories is transformed today into a bridge of preservation: a rescue practice where the fragility of the physical support endures within intangible memory.</p>
+
+                <a href="https://objkt.com/curations/objkt/mixed-faces-slide-collage-dd2cb5fc" target="_blank" rel="noopener" class="link-objkt" data-i18n="collectObjkt">collect at objkt</a>
+            </div>
+        </aside>
+
+        <section class="galeria-obras" aria-label="Galeria Mixed Faces">
+
+            <article class="item-obra">
+                <img src="Annunciation Details.webp" alt="Annunciation Details" loading="lazy">
+                <span class="caption-obra">Annunciation Details</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Buttler make the house bigger.webp" alt="Buttler make the house bigger" loading="lazy">
+                <span class="caption-obra">Buttler Make the House Bigger</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Gamers.webp" alt="Gamers" loading="lazy">
+                <span class="caption-obra">Gamers</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Holy Mother and Lamb.webp" alt="Holy Mother and Lamb" loading="lazy">
+                <span class="caption-obra">Holy Mother and Lamb</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="il pantheon del Colosseo.webp" alt="Il pantheon del Colosseo" loading="lazy">
+                <span class="caption-obra">Il Pantheon del Colosseo</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Just calm, or not.webp" alt="Just calm, or not" loading="lazy">
+                <span class="caption-obra">Just Calm, or Not</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Maquina de luz 5.webp" alt="Maquina de luz #5" loading="lazy">
+                <span class="caption-obra">Maquina de Luz #5</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Maquina de luz 12.webp" alt="Maquina de luz #12" loading="lazy">
+                <span class="caption-obra">Maquina de Luz #12</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Pleasure.webp" alt="Pleasure" loading="lazy">
+                <span class="caption-obra">Pleasure</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Point of view.webp" alt="Point of view" loading="lazy">
+                <span class="caption-obra">Point of View</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Selfportrait.webp" alt="Selfportrait" loading="lazy">
+                <span class="caption-obra">Selfportrait</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="they_could_be_gardeners-.webp" alt="They could be gardeners" loading="lazy">
+                <span class="caption-obra">They Could Be Gardeners</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="the_gardener_of_the_noncoliseum_would_never_have_imagined_that_complete_the_text.webp" alt="The gardener of the noncoliseum" loading="lazy">
+                <span class="caption-obra">The Gardener of the Noncoliseum</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="this lake was created on a slide that had a lake on it but didn't look like one I could swim in.webp" alt="This lake was created on a slide" loading="lazy">
+                <span class="caption-obra">This Lake Was Created on a Slide</span>
+            </article>
+
+            <article class="item-obra">
+                <img src="Workers.webp" alt="Workers" loading="lazy">
+                <span class="caption-obra">Workers</span>
+            </article>
+
+        </section>
+
+    </main>
+
+    <span class="scroll-hint" data-i18n="scrollImagenes">→ gira la rueda sobre las imagenes</span>
+
+    <script src="../js/series-ui-content.js"></script>
+    <script src="../js/site-i18n.js"></script>
+    <script src="../js/galeria-horizontal.js?v=8"></script>
+</body>
+</html>

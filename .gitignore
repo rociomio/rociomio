@@ -1,0 +1,31 @@
+# Sistema operativo
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Logs y reportes temporales
+*.log
+optimize-report.json
+
+# Originales pesados (mantener solo webp en el repo)
+*.psd
+*.tif
+*.tiff
+*.bmp
+
+# Node (por si se agrega tooling)
+node_modules/
