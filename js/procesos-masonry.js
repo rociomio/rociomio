@@ -133,4 +133,14 @@
             renderGallery(activo ? activo.getAttribute('data-filtro') : 'todos');
         }, 250);
     });
+
+    const cabecera = document.querySelector('.procesos-layout .cabecera-interna');
+    if (cabecera) {
+        const umbral = 48;
+        function actualizarCabecera() {
+            cabecera.classList.toggle('procesos-cabecera-colapsada', window.scrollY > umbral);
+        }
+        window.addEventListener('scroll', actualizarCabecera, { passive: true });
+        actualizarCabecera();
+    }
 })();

@@ -128,9 +128,11 @@ $html = @"
     <main class="pagina-interna procesos-layout">
         <section class="cabecera-interna">
             <h1 data-i18n="titulo">Procesos e investigacion</h1>
+            <div class="procesos-descripcion">
             <p data-i18n="parrafos.0">Una observacion atenta de los ciclos del bosque nativo. A traves de la recoleccion etica de pigmentos botanicos, la fotogrametria, la cianotipia y la digitalizacion sensible de texturas organicas, un laboratorio vivo de archivo, luz y materia.</p>
             <p data-i18n="parrafos.1">Guiada por la curiosidad, genere un registro en papel y tintas textiles de Epuyen, Santa Cruz, Jujuy, Salta, Buenos Aires, Berlin y Valencia. Durante 2022 y 2026 dicte talleres en esos territorios bajo el nombre "Junta de Tintes".</p>
             <p data-i18n="parrafos.2">Todos estos registros resultaron quemados en el incendio de 2026 donde perdimos nuestra casa, estudio y galeria de arte. Los unicos registros que permanecen son los que fueron digitalizados y los nuevos colores.</p>
+            </div>
 
             <div class="contenedor-etiquetas" id="filtros">
 $filterButtons
