@@ -43,27 +43,51 @@
             flex-shrink: 0;
             scroll-snap-align: none;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #000000;
+            text-decoration: none;
+            color: #ffffff;
+            position: relative;
+            transition: opacity 0.3s ease;
         }
 
-        .item-media video {
-            height: 100%;
+        .item-media:hover {
+            opacity: 0.88;
+        }
+
+        .item-media img {
+            height: calc(100% - 3rem);
             width: auto;
             max-width: 90vw;
             object-fit: contain;
             border-radius: 2px;
             background: #0a0a0a;
-            transition: opacity 0.35s ease;
         }
 
-        .item-media.is-loading video {
-            opacity: 0.35;
+        .item-caption {
+            margin-top: 10px;
+            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            max-width: 90%;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
         }
 
-        .item-media.is-ready video {
-            opacity: 1;
+        .item-objkt-hint {
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 4px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .item-media:hover .item-objkt-hint {
+            color: #ffffff;
         }
 
         .menu-inferior {
@@ -155,61 +179,7 @@
 </head>
 <body>
 
-    <main class="galeria-horizontal" id="galeriaHorizontal">
-
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmVwFitE7YpjxGDn2HnW4zdDahY52go9Uz5gjuK37zx3ma/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/bafybeigw7iomkpflkkexfycrvnr6rjjxubtkqq6wjyioqhnqaabiph2vau/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmYZMww93973NR3TkPLx46yfZaoL1evsTPQmxFvprmy9KJ/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmWJRvL8psqbDmsVpUDjos6sbtzYnUvbpVae2UfQrpVJ6x/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/bafybeidefuh6s74vrjn34ny2lyua6lkiodtm7fw2mfmqs3o2w4vdngnbom/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmPWBhyjwxFUQgoJdpxVhKdiEvBwyTyBuBDaGKHAwqh8MK/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmSDByK7zGyxmvSMtKwy5VAvR2up8oDzVMhz5TEG68xJfP/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/bafybeigx5hvpenjckc3u75yf6omwkgnp7edlvgdcqmquf3pajxfyr3ueoq/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/bafybeigp7enfgaephz6bzoi6m74x7u3velbppw26wv3zlxayzx7jlpd7au/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmeFbMsSusUcNcZWffXVxYpnSmQfWv7F7mEGKKCd3WSTLq/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmQcCKTT8i1jxCAQf2iFRdB2HB2cxV2fvKRmjPsFHv5EpL/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmYZha8SanYaaB9SSCKo5T17tmVBbgTj2tSyJr4VoxLJGi/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmQayqsMCEEdLpoT8U7mGyMgKnUPTADbSk7Kp2FiNVkQYS/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/QmQcKkS6YHqzwttmvqMdnwZ4fSsNhrGE9X6xezPY4KV6MU/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/bafybeigqtneasbupfavx4jnhdc42rmuh5knqymd7rgb44rnemiiq6pftou/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/bafybeiavxcip3lpr5rtsapbta5l24d6qlq4hpnx3hwnqoarxgqavied6j4/artifact" loop muted playsinline preload="none"></video>
-        </section>
-        <section class="item-media">
-            <video data-src="https://assets.objkt.media/file/assets-003/bafybeia76qozplsopdfwlz5lw6xh5zbrmlacfrfzdbbw2xm22g5sblsd7q/artifact" loop muted playsinline preload="none"></video>
-        </section>
-
-    </main>
+    <main class="galeria-horizontal" id="galeriaHorizontal" aria-label="Galeria Videopoetry"></main>
 
     <footer class="menu-inferior">
         <div class="header-top-row">
@@ -228,12 +198,13 @@
             <p>El video como poesia, codigo e investigacion en tiempo real. Maquinas analogicas e instalaciones CRT, direccion visual en vivo, experiencias espaciales y colaborativas.</p>
         </div>
         <a href="https://objkt.com/curations/objkt/videopoetry-4b4c0796" target="_blank" rel="noopener" class="link-objkt" data-i18n="collectObjkt">collect at objkt</a>
-        <span class="scroll-hint-horizontal" data-i18n="scrollVideos">→ gira la rueda sobre los videos</span>
+        <span class="scroll-hint-horizontal" data-i18n="scrollVideos">→ gira la rueda · clic abre la obra en objkt</span>
     </footer>
 
+    <script src="../js/videopoetry-data.js"></script>
     <script src="../js/series-ui-content.js"></script>
     <script src="../js/site-i18n.js"></script>
+    <script src="../js/videopoetry-page.js"></script>
     <script src="../js/galeria-horizontal.js?v=6"></script>
-    <script src="../js/videopoetry-lazy.js"></script>
 </body>
 </html>
