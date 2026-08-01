@@ -1224,6 +1224,28 @@ main.pagina-interna.procesos-layout {
     font-weight: normal;
     margin-bottom: 20px;
     width: 100%;
+    transition: margin-bottom 0.35s ease;
+}
+
+.procesos-layout .procesos-descripcion {
+    overflow: hidden;
+    max-height: 520px;
+    opacity: 1;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.35s ease;
+}
+
+.procesos-layout .cabecera-interna.procesos-cabecera-colapsada {
+    padding-bottom: 14px;
+}
+
+.procesos-layout .cabecera-interna.procesos-cabecera-colapsada h1 {
+    margin-bottom: 14px;
+}
+
+.procesos-layout .cabecera-interna.procesos-cabecera-colapsada .procesos-descripcion {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
 }
 
 .procesos-layout .cabecera-interna p {
@@ -1234,7 +1256,7 @@ main.pagina-interna.procesos-layout {
     width: 100%;
 }
 
-.procesos-layout .cabecera-interna p:last-of-type {
+.procesos-layout .procesos-descripcion p:last-child {
     margin-bottom: 20px;
 }
 
