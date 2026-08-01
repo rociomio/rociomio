@@ -17,6 +17,7 @@
         link.setAttribute("aria-label", `${item.name} — ver en objkt`);
 
         const img = document.createElement("img");
+        img.referrerPolicy = "no-referrer";
         img.src = item.thumb;
         img.alt = item.name;
         img.loading = "lazy";
