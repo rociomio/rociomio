@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colaboraciones | Rocio Mio</title>
+    <link rel="stylesheet" href="../css/serie-i18n.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body, html {
+            background-color: #ffffff;
+            color: #000000;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .portal-layout {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .columna-texto {
+            width: 32vw;
+            height: 100vh;
+            padding: 40px 3vw;
+            border-right: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+
+        .btn-volver {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-volver:hover { opacity: 0.5; }
+
+        .texto-contenido {
+            margin-top: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-bottom: 40px;
+        }
+
+        .texto-contenido h1 {
+            font-size: clamp(1.5rem, 2.5vw, 3rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            font-weight: normal;
+        }
+
+        .collab-intro {
+            font-size: clamp(0.75rem, 0.95vw, 1rem);
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .collab-lista {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .collab-artista-link {
+            background: none;
+            border: 1px solid #000;
+            color: #000;
+            font-family: inherit;
+            font-size: clamp(0.8rem, 1vw, 1rem);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: left;
+        }
+
+        .collab-artista-link:hover {
+            background: #f0f0f0;
+        }
+
+        .collab-artista-link.activa {
+            background: #000;
+            color: #fff;
+        }
+
+        #collabsRelato {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .collab-artista-nombre {
+            font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: normal;
+        }
+
+        .collab-artista-rol {
+            font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        #collabsRelato p {
+            font-size: clamp(0.8rem, 1vw, 1.05rem);
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .link-objkt {
+            display: inline-block;
+            margin-top: 10px;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .link-objkt:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .galeria-obras {
+            --panel-w: 68vw;
+            width: var(--panel-w);
+            height: 100vh;
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+            overscroll-behavior: contain;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .galeria-obras::-webkit-scrollbar { display: none; }
+
+        .item-obra {
+            width: var(--panel-w);
+            min-width: var(--panel-w);
+            height: 100vh;
+            flex-shrink: 0;
+            display: grid;
+            grid-template-rows: minmax(0, 1fr) auto;
+            grid-template-columns: 1fr;
+            align-items: center;
+            justify-items: center;
+            padding: 1vh 1vw;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .item-obra img,
+        .item-obra video {
+            grid-row: 1;
+            place-self: center;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .caption-obra {
+            grid-row: 2;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #666;
+            text-align: center;
+            max-width: 90%;
+        }
+
+        .collab-vacio {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .collab-vacio .caption-obra {
+            grid-row: auto;
+            color: #999;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 24px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            body, html { overflow: auto; }
+            .portal-layout { flex-direction: column; height: auto; min-height: 100vh; }
+            .columna-texto {
+                width: 100vw;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #000;
+                padding: 30px 20px;
+            }
+            .galeria-obras {
+                --panel-w: 100vw;
+                width: var(--panel-w);
+                height: 70vh;
+            }
+            .item-obra {
+                width: var(--panel-w);
+                min-width: var(--panel-w);
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="portal-layout">
+
+        <aside class="columna-texto">
+            <div class="serie-top-row">
+                <a href="../index.html#colaboraciones" class="btn-volver" data-i18n="nav.volver">[ VOLVER AL ORIGEN ]</a>
+                <div class="serie-lang-toggle serie-lang-toggle--light" role="group" aria-label="Idioma">
+                    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+                    <span class="serie-lang-sep">|</span>
+                    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+
+            <div class="texto-contenido">
+                <h1 data-i18n="titulo">Colaboraciones</h1>
+                <nav class="collab-lista" id="collabsLista" aria-label="Artistas"></nav>
+                <div id="collabsArtistaHead"></div>
+
+                <div class="serie-descripcion">
+                <p class="collab-intro" data-i18n="intro">Comentarios y experiencias compartidas con artistas que atravesaron procesos, residencias y obras junto a Rocio Mio.</p>
+                <div id="collabsRelato"></div>
+                </div>
+            </div>
+        </aside>
+
+        <section class="galeria-obras" id="collabsGaleria" aria-label="Obras de colaboracion"></section>
+
+    </main>
+
+    <span class="scroll-hint" data-i18n="scrollHint">→ gira la rueda sobre las imagenes</span>
+
+    <script src="../js/collabs-content.js"></script>
+    <script src="../js/site-i18n.js"></script>
+    <script src="../js/collabs-page.js"></script>
+    <script src="../js/galeria-horizontal.js?v=8"></script>
+</body>
+</html>

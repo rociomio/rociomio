@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Still a Moment | Rocio Mio</title>
     <link rel="stylesheet" href="../css/serie-i18n.css">
+    <link rel="stylesheet" href="../css/serie-collapse.css">
     <style>
         * {
             margin: 0;
@@ -157,7 +158,7 @@
 </head>
 <body>
 
-    <main class="galeria-vertical" id="galeriaScroll">
+    <main class="galeria-vertical" id="galeriaScroll" data-collapse-scroll="vertical">
 
         <section class="item-media">
             <video src="drop_land.mp4" autoplay loop muted playsinline></video>
@@ -189,7 +190,7 @@
 
     </main>
 
-    <footer class="menu-inferior" id="menuInferior">
+    <footer class="menu-inferior" id="menuInferior" data-collapse-host>
         <div class="header-top-row">
             <h1 class="titulo-serie">Still a Moment</h1>
             <div class="serie-nav-actions">
@@ -202,7 +203,7 @@
             </div>
         </div>
 
-        <div class="bloque-desplegable">
+        <div class="bloque-desplegable" data-collapse-panel>
             <div class="texto-concepto">
                 <p>"Still a moment" is a collection of .jpgs extracted from live video glitches, generated using analog machines and a vintage titler. Each signal interference is ephemeral, only possible to be remembered through the act of recording.</p>
                 <p>Each piece is a frame rescued from chaos - a .jpg extracted from a raw electric signal that exists for 1/24 of a second.</p>
@@ -216,14 +217,7 @@
 
     <script src="../js/series-ui-content.js"></script>
     <script src="../js/site-i18n.js"></script>
-    <script>
-        const galeria = document.getElementById('galeriaScroll');
-        const menu = document.getElementById('menuInferior');
-
-        galeria.addEventListener('scroll', () => {
-            menu.classList.toggle('colapsado', galeria.scrollTop > 80);
-        });
-    </script>
+    <script src="../js/collapse-on-scroll.js"></script>
 
 </body>
 </html>

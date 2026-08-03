@@ -9,6 +9,7 @@ window.PROCESOS_CONTENT = {
   nav: {
     procesos: { es: "Procesos", en: "Processes" },
     bitacora: { es: "Bitacora", en: "Archive" },
+    colaboraciones: { es: "Colaboraciones", en: "Collaborations" },
     contacto: { es: "Contacto", en: "Contact" },
   },
   titulo: { es: "Procesos e investigacion", en: "Processes and research" },

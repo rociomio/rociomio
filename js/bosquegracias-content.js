@@ -64,37 +64,6 @@ window.BOSQUE_CONTENT = {
     ]
   },
   "filtros": {
-    "todos": { "es": "todas", "en": "all" },
-    "ohde": { "es": "ohde", "en": "ohde" }
-  },
-  "ohde": {
-    "obrasTitulo": { "es": "Obras compartidas", "en": "Shared works" },
-    "procesoTitulo": { "es": "Procesos en residencia", "en": "Residency processes" }
-  }
-};
-
-window.BOSQUE_OHDE = {
-  "id": "clara-ohde",
-  "nombre": "Clara Ohde",
-  "contexto": {
-    "es": "Colaboracion · Residencia Newtro · Ecoprint, animacion y textil",
-    "en": "Collaboration · Newtro Residency · Ecoprint, animation and textile"
-  },
-  "cita_corta": {
-    "es": "Rocio tiene una sensibilidad especial para reconocer el potencial de otras personas y hacer que el mundo vea lo que ella ve.",
-    "en": "Rocio has a special sensitivity for recognizing other people's potential and making the world see what she sees."
-  },
-  "texto_completo": {
-    "es": "Rocio Mio es una artista y gestora multidisciplinaria. La caracteriza su capacidad para transformar una idea conceptual en un proyecto material. Tiene una mirada amplia y una facilidad poco comun para moverse entre distintos lenguajes y materiales: desde herramientas digitales, como codigo y glitch, recursos audiovisuales como fotografia, video y edicion, hasta tecnicas textiles, bordado, tintes naturales y confeccion. Tiene el habito de encontrar la forma de que cada recurso este al servicio de la idea.\n\nAdemas, cuenta con una gran capacidad de gestion y resolucion. Ha llevado adelante residencias artisticas y proyectos colectivos que requieren organizacion, adaptacion, compromiso y una gran capacidad para coordinar equipos, generar vinculos y desenvolverse en diferentes contextos. Su mirada integral le permite acompanar un proyecto desde su concepcion hasta su realizacion.\n\nMas alla de la infinidad de oficios y habilidades que domina, lo que mas destaco es su compromiso y perseverancia. Rocio trabaja con dedicacion, constancia y determinacion en todos los desafios que la vida le impone. Rendirse no es una opcion.\n\nSu confianza fue muy importante para mi desarrollo como artista. Tiene una sensibilidad especial para reconocer el potencial de otras personas, acompanarlas para desarrollarlo y, en especial, hacer que el mundo vea lo que ella ve.\n\nMi recomendacion hacia Rocio Mio es absoluta, tanto por su calidad humana como por su profesionalismo.",
-    "en": "Rocio Mio is a multidisciplinary artist and cultural manager. She is characterized by her ability to transform a conceptual idea into a material project. She has a wide-ranging vision and an uncommon ease moving between different languages and materials: from digital tools such as code and glitch, audiovisual resources like photography, video and editing, to textile techniques, embroidery, natural dyes and garment-making. She has the habit of finding ways for each resource to serve the idea.\n\nShe also has great management and problem-solving skills. She has led artistic residencies and collective projects that require organization, adaptation, commitment and a strong ability to coordinate teams, build relationships and navigate different contexts. Her integral vision allows her to accompany a project from conception to completion.\n\nBeyond the countless crafts and skills she masters, what I highlight most is her commitment and perseverance. Rocio works with dedication, consistency and determination through every challenge life presents. Giving up is not an option.\n\nHer trust was very important for my development as an artist. She has a special sensitivity for recognizing other people's potential, accompanying them to develop it and, above all, making the world see what she sees.\n\nMy recommendation of Rocio Mio is absolute, both for her human quality and her professionalism."
-  },
-  "rol": {
-    "es": "Artista visual, disenadora industrial y docente - Argentina",
-    "en": "Visual artist, industrial designer and educator - Argentina"
-  },
-  "red_social": {
-    "plataforma": "Instagram",
-    "url": "https://www.instagram.com/ohde____/",
-    "etiqueta": "@ohde____"
+    "todos": { "es": "todas", "en": "all" }
   }
 };
