@@ -10,6 +10,16 @@
 <body class="bosque-portal-body">
 
     <div class="bosque-portal-layout">
+        <!-- Galeria (izquierda) - scroll propio vertical -->
+        <div class="bosque-columna-galeria">
+            <div id="bosque-source"></div>
+
+            <section class="bosque-galeria-scroll">
+                <div id="bosqueGrid"></div>
+            </section>
+        </div>
+
+        <!-- Texto (derecha) - scroll propio vertical -->
         <aside class="bosque-columna-texto">
             <div class="bosque-texto-top">
                 <a href="index.html" class="btn-volver-portal">← Rocio Mio</a>
@@ -22,26 +32,10 @@
 
             <div class="bosque-texto-cabecera">
                 <div id="bosqueCabecera"></div>
-                <div class="contenedor-etiquetas bosque-filtros" id="filtros">
-                    <button class="etiqueta-filtro activa" data-filtro="todos">todas</button>
-                    <button class="etiqueta-filtro" data-filtro="ohde">ohde</button>
-                </div>
             </div>
 
             <div id="bosqueTexto" class="bosque-texto-contenido"></div>
         </aside>
-
-        <div class="bosque-columna-galeria">
-            <div id="bosqueOhdeIntro" class="bosque-ohde-intro" hidden></div>
-
-            <div id="bosque-source"></div>
-            <div id="ohde-source-collab"></div>
-            <div id="ohde-source-proceso"></div>
-
-            <section class="bosque-galeria-scroll">
-                <div id="bosqueGrid"></div>
-            </section>
-        </div>
     </div>
 
     <script src="js/bosquegracias-content.js"></script>

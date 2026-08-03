@@ -7,6 +7,7 @@
     <title>Videopoetry | Rocio Mio</title>
     <link rel="preload" as="image" href="thumbs/01-cyanotype-with-all-with-nothing.webp">
     <link rel="stylesheet" href="../css/serie-i18n.css">
+    <link rel="stylesheet" href="../css/serie-collapse.css">
     <style>
         * {
             margin: 0;
@@ -182,7 +183,7 @@
 </head>
 <body>
 
-    <main class="galeria-horizontal" id="galeriaHorizontal" aria-label="Galeria Videopoetry">
+    <main class="galeria-horizontal" id="galeriaHorizontal" aria-label="Galeria Videopoetry" data-collapse-scroll="horizontal">
         <!-- GALLERY_START -->
         <a href="https://objkt.com/tokens/KT1Nd2bqkGHfzBUvKaDPuVHzYEVVMX5GhLVJ/4" class="item-media item-objkt" target="_blank" rel="noopener" aria-label="Cyanotype with all, with nothing - ver en objkt">
             <img src="thumbs/01-cyanotype-with-all-with-nothing.webp" alt="Cyanotype with all, with nothing" decoding="async" loading="eager">
@@ -272,7 +273,7 @@
         <!-- GALLERY_END -->
     </main>
 
-    <footer class="menu-inferior">
+    <footer class="menu-inferior" data-collapse-host>
         <div class="header-top-row">
             <h1 class="titulo-serie">Videopoetry</h1>
             <div class="serie-nav-actions">
@@ -284,16 +285,19 @@
                 <a href="../index.html#series" class="btn-volver" data-i18n="volver">[ VOLVER AL ORIGEN ]</a>
             </div>
         </div>
-        <div class="texto-concepto">
-            <p>Video as poetry, code, and real-time research. Analog machines, CRT installations, live visual direction, spatial and collaborative experiences.</p>
-            <p>El video como poesia, codigo e investigacion en tiempo real. Maquinas analogicas e instalaciones CRT, direccion visual en vivo, experiencias espaciales y colaborativas.</p>
+        <div class="bloque-desplegable" data-collapse-panel>
+            <div class="texto-concepto">
+                <p>Video as poetry, code, and real-time research. Analog machines, CRT installations, live visual direction, spatial and collaborative experiences.</p>
+                <p>El video como poesia, codigo e investigacion en tiempo real. Maquinas analogicas e instalaciones CRT, direccion visual en vivo, experiencias espaciales y colaborativas.</p>
+            </div>
+            <a href="https://objkt.com/curations/objkt/videopoetry-4b4c0796" target="_blank" rel="noopener" class="link-objkt" data-i18n="collectObjkt">collect at objkt</a>
         </div>
-        <a href="https://objkt.com/curations/objkt/videopoetry-4b4c0796" target="_blank" rel="noopener" class="link-objkt" data-i18n="collectObjkt">collect at objkt</a>
         <span class="scroll-hint-horizontal" data-i18n="scrollVideos">→ gira la rueda · clic abre la obra en objkt</span>
     </footer>
 
     <script src="../js/series-ui-content.js"></script>
     <script src="../js/site-i18n.js"></script>
     <script src="../js/galeria-horizontal.js?v=6"></script>
+    <script src="../js/collapse-on-scroll.js"></script>
 </body>
 </html>

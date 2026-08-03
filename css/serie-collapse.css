@@ -1,0 +1,35 @@
+/* Colapso de descripciones en subwebs al hacer scroll */
+
+[data-collapse-panel] {
+    overflow: hidden;
+    max-height: 2000px;
+    opacity: 1;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.35s ease, padding 0.35s ease;
+}
+
+.descripcion-colapsada [data-collapse-panel] {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Footer tipo Videopoetry / Still a Moment */
+.menu-inferior.descripcion-colapsada .bloque-desplegable,
+.menu-inferior.descripcion-colapsada [data-collapse-panel] {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.bloque-desplegable {
+    overflow: hidden;
+    max-height: 400px;
+    opacity: 1;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+}

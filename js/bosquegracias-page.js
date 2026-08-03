@@ -1,18 +1,14 @@
 /**
- * BosqueGracias: texto fijo + fuentes masonry desde residencias/.
+ * BosqueGracias: galeria izq + texto der (scrolls independientes) + masonry.
  */
 (function () {
     if (!window.BosqueI18n || !window.BOSQUE_DATA || !window.BOSQUE_CONTENT) return;
 
     const source = document.getElementById('bosque-source');
-    const ohdeCollabSource = document.getElementById('ohde-source-collab');
-    const ohdeProcesoSource = document.getElementById('ohde-source-proceso');
-    const ohdeIntro = document.getElementById('bosqueOhdeIntro');
     const textoWrap = document.getElementById('bosqueTexto');
     const cabeceraWrap = document.getElementById('bosqueCabecera');
 
     const content = window.BOSQUE_CONTENT;
-    const ohdeData = window.BOSQUE_OHDE;
 
     function el(tag, className, text) {
         const node = document.createElement(tag);
@@ -61,21 +57,7 @@
     function buildEditionSource(media) {
         source.innerHTML = '';
         media.filter(isImageEntry).forEach((entry) => {
-            if (entry.ohde) return;
             source.appendChild(createMediaItem(entry));
-        });
-    }
-
-    function buildOhdeSource(ohdeCollab, ohdeProceso) {
-        ohdeCollabSource.innerHTML = '';
-        ohdeProcesoSource.innerHTML = '';
-
-        ohdeCollab.filter(isImageEntry).forEach((entry) => {
-            ohdeCollabSource.appendChild(createMediaItem(entry));
-        });
-
-        ohdeProceso.filter(isImageEntry).forEach((entry) => {
-            ohdeProcesoSource.appendChild(createMediaItem(entry));
         });
     }
 
@@ -115,39 +97,18 @@
         });
     }
 
-    function renderOhdeIntro() {
-        if (!ohdeIntro || !ohdeData) return;
-        const t = BosqueI18n.t;
-        ohdeIntro.innerHTML = `
-            <h2 class="bosque-ohde-nombre">${ohdeData.nombre}</h2>
-            <p class="bosque-ohde-rol">${t(ohdeData.rol)}</p>
-            <blockquote class="bosque-ohde-cita">"${t(ohdeData.cita_corta)}"</blockquote>
-            <div class="bosque-ohde-texto">${t(ohdeData.texto_completo)}</div>
-            <a href="${ohdeData.red_social.url}" target="_blank" rel="noopener" class="bosque-ohde-link">${ohdeData.red_social.plataforma} · ${ohdeData.red_social.etiqueta} ↗</a>`;
-    }
-
     function renderMeta() {
         document.title = `${BosqueI18n.t(content.meta.title)} | Rocio Mio`;
-
-        document.querySelectorAll('#filtros .etiqueta-filtro[data-filtro]').forEach((btn) => {
-            const key = btn.getAttribute('data-filtro');
-            if (content.filtros[key]) btn.textContent = BosqueI18n.t(content.filtros[key]);
-        });
     }
 
     function renderAll() {
         renderMeta();
         renderCabecera();
         renderTexto();
-        renderOhdeIntro();
     }
 
     function init() {
         buildEditionSource(window.BOSQUE_DATA.media);
-        buildOhdeSource(
-            window.BOSQUE_DATA.ohdeCollab || [],
-            window.BOSQUE_DATA.ohdeProceso || []
-        );
         renderAll();
         document.dispatchEvent(new CustomEvent('bosque:sources-ready'));
         document.addEventListener('site:langchange', renderAll);

@@ -8,6 +8,7 @@ window.LANDING_CONTENT = {
   },
   nav: {
     procesos: { es: "Procesos", en: "Processes" },
+    colaboraciones: { es: "Colaboraciones", en: "Collaborations" },
     contacto: { es: "Contacto", en: "Contact" },
   },
   intro: {
@@ -47,16 +48,36 @@ window.LANDING_CONTENT = {
       en: "BosqueGracias - residencies and laboratory in Patagonia",
     },
   },
+  collabs: {
+    titulo: { es: "Colaboraciones", en: "Collaborations" },
+    texto: {
+      es: "Reflexiones, proyectos y experiencias compartidas junto a artistas, curadores, galerias, empresas e instituciones culturales que han atravesado procesos de investigacion, produccion y residencias junto a Rocio Mio.",
+      en: "Reflections, projects and shared experiences with artists, curators, galleries, companies and cultural institutions that have gone through research, production and residency processes alongside Rocio Mio.",
+    },
+    btn: { es: "Explorar colaboraciones →", en: "Explore collaborations →" },
+    portadaAlt: {
+      es: "Colaboraciones - relatos y obras con artistas",
+      en: "Collaborations - stories and works with artists",
+    },
+  },
   contacto: {
     titulo: { es: "Contacto", en: "Contact" },
     textoEs: {
-      es: "Disponible para direccion visual en vivo, instalaciones CRT, desarrollo de proyectos curatoriales, colaboraciones sonoras y consultas sobre la coleccion o residencias en BosqueGracias.",
-      en: "Disponible para direccion visual en vivo, instalaciones CRT, desarrollo de proyectos curatoriales, colaboraciones sonoras y consultas sobre la coleccion o residencias en BosqueGracias.",
+      es: "Disponible para direccion visual en vivo, instalaciones CRT, proyectos curatoriales, colaboraciones sonoras y consultas sobre la coleccion o residencias BosqueGracias.",
+      en: "Disponible para direccion visual en vivo, instalaciones CRT, proyectos curatoriales, colaboraciones sonoras y consultas sobre la coleccion o residencias BosqueGracias.",
+    },
+    textoEs2: {
+      es: "Abierta a obras comisionadas, piezas fisicas, desarrollo de proyectos web y editoriales, e invitaciones para dictar talleres en otros espacios creativos.",
+      en: "Abierta a obras comisionadas, piezas fisicas, desarrollo de proyectos web y editoriales, e invitaciones para dictar talleres en otros espacios creativos.",
     },
     subtitulo: { es: "Open for collaborations", en: "Open for collaborations" },
     textoEn: {
-      es: "Available for live visual direction, CRT installations, curatorial projects, sound collaborations, and inquiries regarding the collection or BosqueGracias residencias.",
-      en: "Available for live visual direction, CRT installations, curatorial projects, sound collaborations, and inquiries regarding the collection or BosqueGracias residencias.",
+      es: "Available for live visual direction, CRT installations, curatorial projects, sound collaborations, and inquiries about the collection or BosqueGracias residencies.",
+      en: "Available for live visual direction, CRT installations, curatorial projects, sound collaborations, and inquiries about the collection or BosqueGracias residencies.",
+    },
+    textoEn2: {
+      es: "Open to commissioned works, physical pieces, web and editorial project development, and invitations to lead workshops in other creative spaces.",
+      en: "Open to commissioned works, physical pieces, web and editorial project development, and invitations to lead workshops in other creative spaces.",
     },
     redes: { es: "Redes", en: "Networks" },
   },

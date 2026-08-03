@@ -116,6 +116,7 @@ $html = @"
             <a href="index.html#procesos" data-i18n="nav.procesos">Procesos</a>
             <a href="procesos.html" class="activo" data-i18n="nav.bitacora">Bitacora</a>
             <a href="index.html#bosquegracias">BosqueGracias</a>
+            <a href="collabs/index.html" data-i18n="nav.colaboraciones">Colaboraciones</a>
             <a href="index.html#contacto" data-i18n="nav.contacto">Contacto</a>
             <div class="landing-lang-toggle" role="group" aria-label="Idioma">
                 <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
