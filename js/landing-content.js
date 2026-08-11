@@ -13,8 +13,8 @@ window.LANDING_CONTENT = {
   },
   intro: {
     manifesto: {
-      es: "Artista visual. Trabajo con videos glitch, GIFs, pigmentos naturales y tecnicas analogicas que atraviesan multiples procesos de digitalizacion para convertirse en obra digital. Exploro el territorio, el material y el error como lenguaje.",
-      en: "Visual artist. I work with glitch videos, GIFs, natural pigments and analog techniques that pass through multiple digitization processes to become digital work. I explore territory, material and error as language.",
+      es: "Artista Multimedia, Directora de arte, Gestora cultural. Trabajo con video, instalaciones y performance, sonido, glitch, gifs, bordados y textiles, maquinas mecanicas y tecnicas analogicas que atraviesan multiples procesos de digitalizacion para convertirse en obra fisica y digital. Exploro poesia, territorios, materialidad y el error como lenguaje.",
+      en: "Multimedia artist, Art director, Cultural manager. I work with video, installations and performance, sound, glitch, gifs, embroidery and textiles, mechanical machines and analog techniques that pass through multiple digitization processes to become physical and digital work. I explore poetry, territories, materiality and error as language.",
     },
     scroll: { es: "↓ deslizar", en: "↓ scroll" },
   },
