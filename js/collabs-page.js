@@ -73,7 +73,7 @@
         `;
     }
 
-    // Galeria - obras del artista o mensaje vacio.
+    // Galeria - obras del artista (imagen/video/youtube) o mensaje vacio.
     function renderGaleria(artist) {
         galeriaEl.innerHTML = "";
         const obras = artist.obras || [];
@@ -90,17 +90,30 @@
             const article = document.createElement("article");
             article.className = "item-obra";
 
-            const img = document.createElement("img");
-            img.src = obra.src;
-            img.alt = obra.alt || artist.nombre;
-            img.loading = "lazy";
-            img.decoding = "async";
+            if (obra.type === "youtube") {
+                const iframe = document.createElement("iframe");
+                iframe.className = "item-youtube";
+                iframe.src = `https://www.youtube.com/embed/${obra.src}?rel=0`;
+                iframe.title = obra.alt || artist.nombre;
+                iframe.loading = "lazy";
+                iframe.allow =
+                    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+                iframe.allowFullscreen = true;
+                iframe.referrerPolicy = "strict-origin-when-cross-origin";
+                article.appendChild(iframe);
+            } else {
+                const img = document.createElement("img");
+                img.src = obra.src;
+                img.alt = obra.alt || artist.nombre;
+                img.loading = "lazy";
+                img.decoding = "async";
+                article.appendChild(img);
+            }
 
             const caption = document.createElement("span");
             caption.className = "caption-obra";
             caption.textContent = obra.alt || artist.nombre;
 
-            article.appendChild(img);
             article.appendChild(caption);
             galeriaEl.appendChild(article);
         });

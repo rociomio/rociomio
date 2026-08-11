@@ -182,7 +182,8 @@
         }
 
         .item-obra img,
-        .item-obra video {
+        .item-obra video,
+        .item-obra iframe {
             grid-row: 1;
             place-self: center;
             max-width: 100%;
@@ -191,6 +192,14 @@
             height: auto;
             object-fit: contain;
             display: block;
+            border: 0;
+        }
+
+        .item-obra iframe.item-youtube {
+            width: min(100%, 420px);
+            height: min(92%, 78vh);
+            aspect-ratio: 9 / 16;
+            background: #000;
         }
 
         .caption-obra {
@@ -267,13 +276,10 @@
 
             <div class="texto-contenido">
                 <h1 data-i18n="titulo">Colaboraciones</h1>
+                <p class="collab-intro" data-i18n="intro">Comentarios y experiencias compartidas con artistas que atravesaron procesos, residencias y obras junto a Rocio Mio.</p>
                 <nav class="collab-lista" id="collabsLista" aria-label="Artistas"></nav>
                 <div id="collabsArtistaHead"></div>
-
-                <div class="serie-descripcion">
-                <p class="collab-intro" data-i18n="intro">Comentarios y experiencias compartidas con artistas que atravesaron procesos, residencias y obras junto a Rocio Mio.</p>
                 <div id="collabsRelato"></div>
-                </div>
             </div>
         </aside>
 

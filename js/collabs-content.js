@@ -78,6 +78,26 @@ window.COLLABS_ARTISTS = [
     // Obras - agregar imagenes en collabs/jade sivori/
     obras: [],
   },
+  {
+    id: "teztones",
+    nombre: "Teztones",
+    rol: {
+      es: "Hashbrown · Teztones · United States",
+      en: "Hashbrown · Teztones · United States",
+    },
+    texto: {
+      es: "TezTones es una liga deportiva para artistas. Exploramos como la colaboracion y la competencia pueden cruzarse con las artes asignando artistas a un equipo para crear una pieza colaborativa a partir de un tema comun en cada partido.\n\nRocio es una persona maravillosa para trabajar! Tiene una vision artistica fuerte y aporta mucho creativamente, pero tambien es muy abierta de mente y buena encontrando puntos en comun al colaborar. Tanto como artista como organizadora aporta una dualidad de energia contagiosa y una presencia calmada y estable. Eso, sumado a una buena etica de trabajo y habilidades de comunicacion, la convierten en una gema absoluta!",
+      en: "TezTones is a sports league for artists. We are exploring how collaboration and competition can intersect with the arts by assigning artists to a team to create a collaborative piece off of a common theme each match.\n\nRocio is a wonderful person to work with! She has a strong artistic vision and brings a lot to the table creatively, but is also very open minded and good at finding common ground when collaborating. Both as an artist and organizer she brings a duality of infectious energy and a calm grounding presence. That on top of a good work ethic and communication skills make her an absolute gem!",
+    },
+    // Reel YouTube Shorts al lado del relato
+    obras: [
+      {
+        type: "youtube",
+        src: "18o7peQXFII",
+        alt: "Teztones · YouTube Shorts",
+      },
+    ],
+  },
 ];
 
 window.PAGE_I18N_CONTENT = window.COLLABS_CONTENT;
