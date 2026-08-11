@@ -125,22 +125,28 @@
         renderGallery('todos');
     }
 
+    // Sticky filters offset - keep filters docked under the sticky title height.
+    const tituloProcesos = document.querySelector('.procesos-layout .cabecera-interna h1');
+
+    function syncFiltrosStickyTop() {
+        if (!tituloProcesos) return;
+        const headerAlto =
+            parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-alto')) || 70;
+        document.documentElement.style.setProperty(
+            '--procesos-filtros-top',
+            `${headerAlto + tituloProcesos.offsetHeight}px`
+        );
+    }
+
+    syncFiltrosStickyTop();
+
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
+            syncFiltrosStickyTop();
             const activo = document.querySelector('.etiqueta-filtro.activa');
             renderGallery(activo ? activo.getAttribute('data-filtro') : 'todos');
         }, 250);
     });
-
-    const cabecera = document.querySelector('.procesos-layout .cabecera-interna');
-    if (cabecera) {
-        const umbral = 48;
-        function actualizarCabecera() {
-            cabecera.classList.toggle('procesos-cabecera-colapsada', window.scrollY > umbral);
-        }
-        window.addEventListener('scroll', actualizarCabecera, { passive: true });
-        actualizarCabecera();
-    }
 })();
