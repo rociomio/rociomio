@@ -1,5 +1,5 @@
 /**
- * Fondo aleatorio en #intro: imagenes horizontales de las series.
+ * Fondo aleatorio en #index: imagenes horizontales de las series.
  */
 (function () {
     const BACKGROUNDS = [
@@ -37,7 +37,7 @@
             .join('/');
     }
 
-    const intro = document.getElementById('intro');
+    const intro = document.getElementById('index');
     if (!intro || !BACKGROUNDS.length) return;
 
     const pick = BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)];

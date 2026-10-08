@@ -71,7 +71,7 @@ body.landing-body .seccion-preview h2 {
     line-height: 1.2;
 }
 
-body.landing-body #intro h1 {
+body.landing-body #index h1 {
     font-family: var(--font-landing);
 }
 
@@ -191,7 +191,7 @@ section.full {
 }
 
 /* --- Intro --- */
-#intro {
+#index {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -203,7 +203,7 @@ section.full {
     overflow: hidden;
 }
 
-#intro::before {
+#index::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -212,16 +212,16 @@ section.full {
     transition: opacity 0.6s ease;
 }
 
-#intro.intro-con-imagen::before {
+#index.intro-con-imagen::before {
     opacity: 1;
 }
 
-#intro > * {
+#index > * {
     position: relative;
     z-index: 1;
 }
 
-#intro h1 {
+#index h1 {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     letter-spacing: -1px;
     margin-bottom: 24px;
@@ -229,7 +229,7 @@ section.full {
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
 }
 
-#intro .manifesto {
+#index .manifesto {
     max-width: 680px;
     font-size: 1.15rem;
     line-height: 1.7;
@@ -238,7 +238,7 @@ section.full {
     text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
 }
 
-#intro .scroll-hint {
+#index .scroll-hint {
     color: rgba(255, 255, 255, 0.75);
 }
 
