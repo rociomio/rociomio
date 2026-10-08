@@ -1051,39 +1051,25 @@ section.full {
 }
 
 /* --- Contacto --- */
-/* --- Preview colaboraciones en index --- */
-.seccion-collabs-home {
-    background: #f4f4f4;
-    padding: calc(var(--header-alto) + 32px) 10px 56px;
-    justify-content: flex-start;
+/* --- Colaboraciones en index: carrusel tipo series --- */
+.collabs-carrusel-wrap {
+    background: #111;
 }
 
-.collabs-home-inner {
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
+.slide-serie--texto {
+    background: #1c1c1c;
 }
 
-
-.collabs-home-portada {
-    display: block;
-    width: min(920px, 92vw);
-    margin: 0 auto 28px;
-    overflow: hidden;
+.slide-serie--texto .slide-texto-fondo {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.06), transparent 55%),
+        #1c1c1c;
 }
 
-.collabs-home-portada img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 52vh;
-    object-fit: cover;
-    object-position: center;
-}
-
-.seccion-collabs-home .btn-ver-mas,
-.seccion-collabs-home .etiqueta-filtro {
-    font-family: inherit;
+.slide-serie--texto .info-slide {
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .seccion-contacto {
