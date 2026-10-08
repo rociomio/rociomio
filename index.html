@@ -80,6 +80,14 @@
                     </div>
                 </a>
 
+                <a href="maquinas sensibles/index.html" class="slide-proyecto slide-serie">
+                    <img src="maquinas sensibles/memorias/portada.webp" alt="Maquinas sensibles" class="img-slide">
+                    <div class="info-slide">
+                        <h3>Maquinas sensibles</h3>
+                        <span class="etiqueta" data-i18n="series.maquinasSensibles">Memorias · maquinas · archivo</span>
+                    </div>
+                </a>
+
             </div>
 
             <button type="button" class="carrusel-btn carrusel-btn--next" id="seriesNext" data-i18n-aria="series.next" aria-label="Serie siguiente">→</button>
@@ -134,23 +142,44 @@
             </div>
         </section>
 
-        <section id="colaboraciones" class="full seccion-collabs-home">
-            <div class="collabs-home-inner">
-                <h2 data-i18n="collabs.titulo">Colaboraciones</h2>
-                <p data-i18n="collabs.texto">Reflexiones, proyectos y experiencias compartidas junto a artistas, curadores, galerias, empresas e instituciones culturales que han atravesado procesos de investigacion, produccion y residencias junto a Rocio Mio.</p>
+        <section id="colaboraciones" class="full series-carrusel-wrap collabs-carrusel-wrap">
+            <button type="button" class="carrusel-btn carrusel-btn--prev" id="collabsHomePrev" data-i18n-aria="collabs.prev" aria-label="Colaboracion anterior">←</button>
 
-                <div class="contenedor-etiquetas contenedor-etiquetas--home">
-                    <a href="collabs/index.html?artista=ohde" class="etiqueta-filtro etiqueta-link">Clara Ohde</a>
-                    <a href="collabs/index.html?artista=jade-sivori" class="etiqueta-filtro etiqueta-link">Jade Sivori</a>
-                    <a href="collabs/index.html?artista=teztones" class="etiqueta-filtro etiqueta-link">Teztones</a>
-                </div>
-
-                <a href="collabs/index.html" class="collabs-home-portada">
-                    <img src="collabs/ohde/collab ohde/Intersection_resized.webp" data-i18n-alt="collabs.portadaAlt" alt="Colaboraciones - relatos y obras con artistas">
+            <div class="slider-proyectos" id="collabsHomeSlider">
+                <a href="collabs/index.html?artista=ohde" class="slide-proyecto slide-serie">
+                    <img src="collabs/ohde/collab ohde/Intersection_resized.webp" alt="Clara Ohde" class="img-slide">
+                    <div class="info-slide">
+                        <h3 data-i18n="collabs.titulo">Colaboraciones</h3>
+                        <span class="etiqueta">Clara Ohde</span>
+                    </div>
                 </a>
 
-                <a href="collabs/index.html" class="btn-ver-mas" data-i18n="collabs.btn">Explorar colaboraciones →</a>
+                <a href="collabs/index.html?artista=ale-piovano" class="slide-proyecto slide-serie">
+                    <img src="collabs/Ale%20piovano/webp/presentacion%20para%20video%20impr3.webp" alt="Ale Piovano" class="img-slide">
+                    <div class="info-slide">
+                        <h3 data-i18n="collabs.titulo">Colaboraciones</h3>
+                        <span class="etiqueta">Ale Piovano</span>
+                    </div>
+                </a>
+
+                <a href="collabs/index.html?artista=teztones" class="slide-proyecto slide-serie">
+                    <img src="https://i.ytimg.com/vi/18o7peQXFII/hqdefault.jpg" alt="Teztones" class="img-slide">
+                    <div class="info-slide">
+                        <h3 data-i18n="collabs.titulo">Colaboraciones</h3>
+                        <span class="etiqueta">Teztones</span>
+                    </div>
+                </a>
+
+                <a href="collabs/index.html?artista=jade-sivori" class="slide-proyecto slide-serie slide-serie--texto">
+                    <div class="slide-texto-fondo" aria-hidden="true"></div>
+                    <div class="info-slide">
+                        <h3 data-i18n="collabs.titulo">Colaboraciones</h3>
+                        <span class="etiqueta">Jade Sivori</span>
+                    </div>
+                </a>
             </div>
+
+            <button type="button" class="carrusel-btn carrusel-btn--next" id="collabsHomeNext" data-i18n-aria="collabs.next" aria-label="Colaboracion siguiente">→</button>
         </section>
 
         <section id="contacto" class="full seccion-contacto">

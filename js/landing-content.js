@@ -26,6 +26,7 @@ window.LANDING_CONTENT = {
     mixedFaces: { es: "Diapositivas · collage · archivo encontrado", en: "Slides · collage · found archive" },
     stillAMoment: { es: "Live glitch · .jpg · 1/24s", en: "Live glitch · .jpg · 1/24s" },
     typemachine: { es: "Maquina de escribir · scanner · IA", en: "Typewriter · scanner · AI" },
+    maquinasSensibles: { es: "Memorias · maquinas · archivo", en: "Memories · machines · archive" },
   },
   procesos: {
     titulo: { es: "Procesos e investigacion", en: "Processes and research" },
@@ -51,9 +52,11 @@ window.LANDING_CONTENT = {
   collabs: {
     titulo: { es: "Colaboraciones", en: "Collaborations" },
     texto: {
-      es: "Reflexiones, proyectos y experiencias compartidas junto a artistas, curadores, galerias, empresas e instituciones culturales que han atravesado procesos de investigacion, produccion y residencias junto a Rocio Mio.",
-      en: "Reflections, projects and shared experiences with artists, curators, galleries, companies and cultural institutions that have gone through research, production and residency processes alongside Rocio Mio.",
+      es: "Comentarios de artistas y entidades con los que ha colaborado Rocio Mio.",
+      en: "Comments from artists and organizations who have collaborated with Rocio Mio.",
     },
+    prev: { es: "Colaboracion anterior", en: "Previous collaboration" },
+    next: { es: "Colaboracion siguiente", en: "Next collaboration" },
     btn: { es: "Explorar colaboraciones →", en: "Explore collaborations →" },
     portadaAlt: {
       es: "Colaboraciones - relatos y obras con artistas",

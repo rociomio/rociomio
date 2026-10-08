@@ -71,37 +71,41 @@
             color: #333;
         }
 
-        .collab-lista {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-            margin-bottom: 28px;
-            padding-bottom: 20px;
+        .collab-lista--parrafo {
+            display: block;
+            margin-bottom: 22px;
+            padding-bottom: 16px;
             border-bottom: 1px solid #ddd;
+            line-height: 1.7;
+            font-size: clamp(0.8rem, 1vw, 1rem);
+            letter-spacing: 0.5px;
         }
 
-        .collab-artista-link {
+        .collab-artista-inline {
             background: none;
-            border: 1px solid #000;
+            border: none;
             color: #000;
             font-family: inherit;
-            font-size: clamp(0.8rem, 1vw, 1rem);
-            letter-spacing: 1px;
+            font-size: inherit;
+            letter-spacing: inherit;
             text-transform: uppercase;
-            padding: 8px 14px;
+            padding: 0;
             cursor: pointer;
-            transition: all 0.25s ease;
-            text-align: left;
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
-        .collab-artista-link:hover {
-            background: #f0f0f0;
+        .collab-artista-inline:hover {
+            opacity: 0.55;
         }
 
-        .collab-artista-link.activa {
-            background: #000;
-            color: #fff;
+        .collab-artista-inline.activa {
+            text-decoration-thickness: 2px;
+            font-weight: bold;
+        }
+
+        .collab-sep {
+            color: #999;
         }
 
         #collabsRelato {
@@ -150,10 +154,18 @@
             color: #fff;
         }
 
-        .galeria-obras {
-            --panel-w: 68vw;
-            width: var(--panel-w);
+        .galeria-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 0;
             height: 100vh;
+            background: #f7f7f7;
+        }
+
+        .galeria-obras {
+            --panel-w: 100%;
+            width: 100%;
+            height: 100%;
             display: flex;
             overflow-x: auto;
             overflow-y: hidden;
@@ -167,16 +179,16 @@
         .galeria-obras::-webkit-scrollbar { display: none; }
 
         .item-obra {
-            width: var(--panel-w);
-            min-width: var(--panel-w);
-            height: 100vh;
+            width: 100%;
+            min-width: 100%;
+            height: 100%;
             flex-shrink: 0;
             display: grid;
             grid-template-rows: minmax(0, 1fr) auto;
             grid-template-columns: 1fr;
             align-items: center;
             justify-items: center;
-            padding: 1vh 1vw;
+            padding: 2vh 2vw 1.5vh;
             overflow: hidden;
             box-sizing: border-box;
         }
@@ -188,11 +200,43 @@
             place-self: center;
             max-width: 100%;
             max-height: 100%;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
             display: block;
             border: 0;
+        }
+
+        .galeria-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            width: 48px;
+            height: 48px;
+            border: 1px solid #000;
+            background: rgba(255, 255, 255, 0.92);
+            color: #000;
+            cursor: pointer;
+            font-size: 1.35rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .galeria-nav--prev { left: 14px; }
+        .galeria-nav--next { right: 14px; }
+
+        .galeria-nav:hover:not(:disabled) {
+            background: #000;
+            color: #fff;
+        }
+
+        .galeria-nav:disabled {
+            opacity: 0.2;
+            cursor: default;
         }
 
         .item-obra iframe.item-youtube {
@@ -247,15 +291,13 @@
                 border-bottom: 1px solid #000;
                 padding: 30px 20px;
             }
-            .galeria-obras {
-                --panel-w: 100vw;
-                width: var(--panel-w);
+            .galeria-wrap {
+                width: 100vw;
                 height: 70vh;
             }
-            .item-obra {
-                width: var(--panel-w);
-                min-width: var(--panel-w);
-                height: 70vh;
+            .galeria-nav {
+                width: 42px;
+                height: 42px;
             }
         }
     </style>
@@ -276,18 +318,22 @@
 
             <div class="texto-contenido">
                 <h1 data-i18n="titulo">Colaboraciones</h1>
-                <p class="collab-intro" data-i18n="intro">Comentarios y experiencias compartidas con artistas que atravesaron procesos, residencias y obras junto a Rocio Mio.</p>
-                <nav class="collab-lista" id="collabsLista" aria-label="Artistas"></nav>
+                <p class="collab-intro" data-i18n="intro">Comentarios de artistas y entidades con los que ha colaborado Rocio Mio.</p>
+                <nav class="collab-lista collab-lista--parrafo" id="collabsLista" aria-label="Artistas"></nav>
                 <div id="collabsArtistaHead"></div>
                 <div id="collabsRelato"></div>
             </div>
         </aside>
 
-        <section class="galeria-obras" id="collabsGaleria" aria-label="Obras de colaboracion"></section>
+        <div class="galeria-wrap">
+            <button type="button" class="galeria-nav galeria-nav--prev" id="collabsPrev" aria-label="Imagen anterior">←</button>
+            <section class="galeria-obras" id="collabsGaleria" aria-label="Obras de colaboracion"></section>
+            <button type="button" class="galeria-nav galeria-nav--next" id="collabsNext" aria-label="Imagen siguiente">→</button>
+        </div>
 
     </main>
 
-    <span class="scroll-hint" data-i18n="scrollHint">→ gira la rueda sobre las imagenes</span>
+    <span class="scroll-hint" data-i18n="scrollHint">→ gira la rueda o usa las flechas</span>
 
     <script src="../js/collabs-content.js"></script>
     <script src="../js/site-i18n.js"></script>
