@@ -361,6 +361,10 @@ body.zoen-body {
     grid-column: 1;
 }
 
+.zoen-hero-still.zoen-hero-still--full img {
+    object-position: center 100%;
+}
+
 .zoen-stills-nav[hidden] {
     display: none;
 }
@@ -739,6 +743,147 @@ body.zoen-body {
     max-width: 64ch;
 }
 
+/* Quote form - request block after the bios: heading left, fields right. */
+.zoen-quote {
+    position: relative;
+    padding: clamp(3rem, 8vw, 6rem) var(--zoen-pad);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 2rem clamp(2rem, 5vw, 5rem);
+    border-top: 1px solid var(--zoen-line);
+}
+
+.zoen-quote-kicker {
+    font-size: var(--zoen-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--zoen-mute);
+    margin-bottom: 0.8rem;
+}
+
+.zoen-quote-title {
+    font-size: clamp(2rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    color: var(--zoen-accent);
+    max-width: 9ch;
+}
+
+.zoen-quote-intro {
+    margin-top: 1.2rem;
+    font-size: var(--zoen-text);
+    letter-spacing: var(--zoen-track);
+    line-height: 1.5;
+    max-width: 38ch;
+}
+
+.zoen-quote-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem 1.5rem;
+    align-content: start;
+}
+
+.zoen-quote-field {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.zoen-quote-field--full,
+.zoen-quote-actions {
+    grid-column: 1 / -1;
+}
+
+.zoen-quote-field span {
+    font-size: var(--zoen-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--zoen-mute);
+}
+
+.zoen-quote-field input,
+.zoen-quote-field textarea {
+    width: 100%;
+    padding: 0.55rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--zoen-line);
+    border-radius: 0;
+    background: transparent;
+    color: var(--zoen-ink);
+    font-size: max(16px, var(--zoen-text));
+    line-height: 1.45;
+    resize: vertical;
+}
+
+.zoen-quote-field textarea {
+    border: 1px solid var(--zoen-line);
+    padding: 0.7rem 0.8rem;
+}
+
+.zoen-quote-field input:focus,
+.zoen-quote-field textarea:focus {
+    outline: none;
+    border-color: var(--zoen-accent);
+}
+
+.zoen-quote-field textarea::placeholder {
+    color: var(--zoen-mute);
+    opacity: 0.8;
+}
+
+.zoen-quote-honey {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.zoen-quote-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+}
+
+.zoen-quote-send {
+    padding: 0.85rem 2.2rem;
+    border: 1px solid var(--zoen-ink);
+    background: var(--zoen-ink);
+    color: var(--zoen-bg);
+    font-family: var(--zoen-font);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.zoen-quote-send:hover,
+.zoen-quote-send:focus-visible {
+    background: var(--zoen-accent);
+    border-color: var(--zoen-accent);
+}
+
+.zoen-quote-send:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.zoen-quote-status {
+    font-size: var(--zoen-text);
+    letter-spacing: var(--zoen-track);
+    line-height: 1.45;
+    max-width: 48ch;
+}
+
+.zoen-quote-status[data-state="error"] {
+    color: var(--zoen-accent);
+}
+
 /* Subtexts - Courier for kicker, meta, facts, body copy and index labels. */
 .zoen-hero-head,
 .zoen-meta-block dt,
@@ -749,7 +894,13 @@ body.zoen-body {
 .zoen-project-facts,
 .zoen-project-body p,
 .zoen-footer-nota,
-.zoen-gallery-counter {
+.zoen-gallery-counter,
+.zoen-quote-kicker,
+.zoen-quote-intro,
+.zoen-quote-field span,
+.zoen-quote-field input,
+.zoen-quote-field textarea,
+.zoen-quote-status {
     font-family: var(--zoen-font-sub);
 }
 
@@ -909,8 +1060,17 @@ body.zoen-body {
         -webkit-line-clamp: unset;
     }
 
-    .zoen-footer {
+    .zoen-footer,
+    .zoen-quote {
         grid-template-columns: 1fr;
+    }
+
+    .zoen-quote-form {
+        grid-template-columns: 1fr;
+    }
+
+    .zoen-quote-title {
+        max-width: none;
     }
 
     .zoen-top {
