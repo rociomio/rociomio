@@ -53,6 +53,16 @@
                 listaEl.appendChild(sep);
             }
 
+            if (artist.pageHref) {
+                const link = document.createElement("a");
+                link.className = "collab-artista-inline";
+                link.href = encodeSrc(artist.pageHref);
+                link.textContent = artist.nombre;
+                link.setAttribute("data-artist", artist.id);
+                listaEl.appendChild(link);
+                return;
+            }
+
             const btn = document.createElement("button");
             btn.type = "button";
             btn.className = "collab-artista-inline";
@@ -234,7 +244,15 @@
     function initFromUrl() {
         const param = new URLSearchParams(window.location.search).get("artista");
         const match = artists.find((a) => a.id === param);
-        selectArtist(match ? match.id : artists[0].id);
+
+        // Artistas con pagina propia - redirigir al dossier dedicado.
+        if (match && match.pageHref) {
+            window.location.replace(encodeSrc(match.pageHref));
+            return;
+        }
+
+        const fallback = artists.find((a) => !a.pageHref) || artists[0];
+        selectArtist(match && !match.pageHref ? match.id : fallback.id);
     }
 
     btnPrev?.addEventListener("click", () => stepGaleria(-1));

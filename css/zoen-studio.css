@@ -1,0 +1,858 @@
+/* Zoen Calega studio dossier - Swiss / production sheet aesthetic. */
+
+:root {
+    --zoen-bg: #f4f4f2;
+    --zoen-ink: #0a0a0a;
+    --zoen-mute: #6a6a6a;
+    --zoen-line: #0a0a0a;
+    --zoen-accent: #e10600;
+    --zoen-font: "Helvetica Neue", Helvetica, "Arial Narrow", sans-serif;
+    --zoen-font-display: "Archivo Black", "Helvetica Neue", Helvetica, sans-serif;
+    --zoen-pad: clamp(1.2rem, 3.5vw, 3rem);
+    --zoen-font-sub: "Courier New", Courier, monospace;
+    --zoen-text: clamp(0.78rem, 2vh, 1rem);
+    --zoen-label: clamp(0.68rem, 1.7vh, 0.82rem);
+    --zoen-track: 0.04em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.zoen-body {
+    background: var(--zoen-bg);
+    color: var(--zoen-ink);
+    font-family: var(--zoen-font);
+    font-weight: 400;
+    line-height: 1.35;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Registration marks - tech sheet corners. */
+.zoen-mark {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+.zoen-mark::before,
+.zoen-mark::after {
+    content: "";
+    position: absolute;
+    background: var(--zoen-ink);
+}
+
+.zoen-mark::before {
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+.zoen-mark::after {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform: translateY(-50%);
+}
+
+.zoen-mark--tl { top: 12px; left: 12px; }
+.zoen-mark--tr { top: 12px; right: 12px; }
+.zoen-mark--bl { bottom: 12px; left: 12px; }
+.zoen-mark--br { bottom: 12px; right: 12px; }
+
+/* Top bar - nav + lang. */
+.zoen-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px var(--zoen-pad);
+    mix-blend-mode: difference;
+    color: #fff;
+}
+
+.zoen-top a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.zoen-top a:hover { opacity: 0.55; }
+
+.zoen-top-links {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.zoen-lang {
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+}
+
+.zoen-lang button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+    opacity: 0.45;
+    padding: 0;
+}
+
+.zoen-lang button[aria-pressed="true"] { opacity: 1; }
+.zoen-lang-sep { opacity: 0.35; }
+
+/* Hero - locked to one viewport, scales to visitor screen. */
+.zoen-hero {
+    position: relative;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+    padding: calc(2.6rem + env(safe-area-inset-top, 0px))
+        clamp(0.85rem, 2.2vw, 2rem)
+        clamp(0.7rem, 1.4vh, 1.1rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.45rem, 1.2vh, 0.85rem);
+    border-bottom: 1px solid var(--zoen-line);
+    background: var(--zoen-bg);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.zoen-hero-head {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: clamp(0.58rem, 1.3vh, 0.68rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.zoen-hero-marca {
+    color: var(--zoen-accent);
+    font-weight: 700;
+}
+
+/* Portal - text left / mosaic right, fills remaining viewport. */
+.zoen-portal {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    min-height: 0;
+    background: #fff;
+    border: 1px solid var(--zoen-line);
+    overflow: hidden;
+}
+
+.zoen-portal-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.35rem, 1.2vh, 0.85rem);
+    padding: clamp(0.75rem, 2.2vh, 1.6rem) clamp(0.9rem, 2vw, 1.8rem);
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.zoen-portal-badge {
+    position: absolute;
+    top: clamp(0.55rem, 1.4vh, 1rem);
+    right: clamp(0.55rem, 1.4vh, 1rem);
+    width: clamp(1.7rem, 4.2vh, 2.3rem);
+    height: clamp(1.7rem, 4.2vh, 2.3rem);
+    border-radius: 50%;
+    background: var(--zoen-accent);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: clamp(0.62rem, 1.5vh, 0.78rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.zoen-hero-display {
+    font-size: clamp(3rem, 11vh, 6.8rem);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 0.84;
+    letter-spacing: -0.05em;
+    text-transform: lowercase;
+    color: var(--zoen-accent);
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 2.4rem 0.02em 0;
+    box-decoration-break: clone;
+    background: linear-gradient(
+        to top,
+        color-mix(in srgb, var(--zoen-accent) 22%, transparent) 0 0.38em,
+        transparent 0.38em
+    );
+}
+
+.zoen-hero-brand {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+}
+
+.zoen-hero-brand h1,
+.zoen-hero-cruz {
+    font-size: clamp(4.2rem, 14.8vh, 9.2rem);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 0.72;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    color: var(--zoen-ink);
+    width: 100%;
+}
+
+.zoen-hero-cruz {
+    display: block;
+    margin-top: 0.02em;
+}
+
+.zoen-hero-linea {
+    margin-top: clamp(1.1rem, 3.2vh, 2rem);
+    font-family: var(--zoen-font-display);
+    font-size: clamp(0.82rem, 2.1vh, 1.1rem);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    color: var(--zoen-ink);
+    max-width: 100%;
+}
+
+.zoen-hero-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.45rem, 1.3vh, 0.85rem) clamp(0.75rem, 1.6vw, 1.5rem);
+    margin-top: 0.15rem;
+    padding-top: clamp(0.45rem, 1.4vh, 0.85rem);
+    border-top: 1px solid color-mix(in srgb, var(--zoen-line) 35%, transparent);
+    min-height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.zoen-meta-block dt {
+    font-size: clamp(0.68rem, 1.7vh, 0.82rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.22rem;
+    color: var(--zoen-mute);
+    font-weight: 700;
+}
+
+.zoen-meta-block dd {
+    font-size: var(--zoen-text);
+    line-height: 1.35;
+    max-width: 100%;
+    white-space: pre-line;
+    text-transform: none;
+    letter-spacing: var(--zoen-track);
+}
+
+.zoen-hero-lead {
+    margin-top: auto;
+    font-size: var(--zoen-text);
+    line-height: 1.4;
+    max-width: 100%;
+    color: var(--zoen-mute);
+    text-transform: none;
+    letter-spacing: var(--zoen-track);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.zoen-portal-arrow {
+    align-self: flex-end;
+    color: var(--zoen-ink);
+    text-decoration: none;
+    font-size: clamp(1rem, 2.4vh, 1.35rem);
+    line-height: 1;
+    flex: 0 0 auto;
+}
+
+.zoen-portal-arrow:hover {
+    color: var(--zoen-accent);
+}
+
+/* Right mosaic - fills portal height, tile size from container. */
+.zoen-portal-media {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    border-left: 1px solid var(--zoen-line);
+    background: #111;
+    display: flex;
+    container-type: size;
+    overflow: hidden;
+}
+
+.zoen-hero-stills {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-columns: 50cqh;
+    gap: 0;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+}
+
+.zoen-hero-stills::-webkit-scrollbar {
+    display: none;
+}
+
+/* Single hero image - one still filling the whole portal side. */
+.zoen-hero-stills--single {
+    grid-template-rows: 1fr;
+    grid-auto-columns: 100%;
+    overflow: hidden;
+}
+
+.zoen-hero-still--full {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.zoen-stills-nav[hidden] {
+    display: none;
+}
+
+/* Stills nav - clear left/right controls over mosaic. */
+.zoen-stills-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%);
+    width: clamp(2.4rem, 5.5vh, 3.1rem);
+    height: clamp(2.4rem, 5.5vh, 3.1rem);
+    border: 1px solid #fff;
+    background: color-mix(in srgb, #000 55%, transparent);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.zoen-stills-nav:hover:not(:disabled) {
+    background: var(--zoen-accent);
+    border-color: var(--zoen-accent);
+}
+
+.zoen-stills-nav:disabled {
+    opacity: 0.28;
+    cursor: default;
+}
+
+.zoen-stills-nav--prev { left: 0.65rem; }
+.zoen-stills-nav--next { right: 0.65rem; }
+
+.zoen-hero-still {
+    margin: 0;
+    overflow: hidden;
+    background: #222;
+    scroll-snap-align: start;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    min-width: 0;
+    min-height: 0;
+}
+
+.zoen-hero-still--lg {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.zoen-hero-still--tall {
+    grid-row: span 2;
+}
+
+.zoen-hero-still--wide {
+    grid-column: span 2;
+}
+
+.zoen-hero-still img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: none;
+}
+
+/* Index strip - project codes. */
+.zoen-index {
+    position: relative;
+    padding: 1.25rem var(--zoen-pad);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.4rem;
+    align-items: center;
+    border-bottom: 1px solid var(--zoen-line);
+    font-size: var(--zoen-label);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.zoen-index-label {
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.zoen-index a {
+    color: var(--zoen-ink);
+    text-decoration: none;
+    opacity: 0.55;
+}
+
+.zoen-index a:hover {
+    opacity: 1;
+    color: var(--zoen-accent);
+}
+
+/* Project sheets - one project per viewport. */
+.zoen-project {
+    --zoen-media-max: calc(100dvh - 5rem);
+    position: relative;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+    padding: clamp(1.4rem, 3.5vh, 2.4rem) clamp(0.9rem, 2.5vw, 2.4rem);
+    border-bottom: 1px solid var(--zoen-line);
+    display: grid;
+    gap: clamp(0.7rem, 2vh, 1.6rem);
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.zoen-project--landscape {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "head media"
+        "body media";
+}
+
+.zoen-project--portrait {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "media head"
+        "media body";
+}
+
+#zoenProjects .zoen-project:nth-child(even) {
+    background: #efefed;
+}
+
+.zoen-project-head {
+    grid-area: head;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.35rem, 1.2vh, 0.7rem);
+    min-width: 0;
+    overflow: hidden;
+}
+
+.zoen-project-code {
+    font-size: var(--zoen-label);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--zoen-mute);
+}
+
+.zoen-project-title {
+    font-size: clamp(1.6rem, 6.5vh, 4.2rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    max-width: 10ch;
+}
+
+.zoen-project:nth-child(3n + 1) .zoen-project-title {
+    color: var(--zoen-accent);
+}
+
+.zoen-project-facts {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 0.45rem 1.5rem;
+    margin-top: 0.2rem;
+    font-size: var(--zoen-text);
+    letter-spacing: var(--zoen-track);
+    line-height: 1.35;
+    max-width: 64ch;
+}
+
+.zoen-project-facts span {
+    display: block;
+    color: var(--zoen-mute);
+    font-size: var(--zoen-label);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.22rem;
+}
+
+.zoen-project-body {
+    grid-area: body;
+    align-self: end;
+    max-width: 60ch;
+    overflow: hidden;
+}
+
+.zoen-project-body p {
+    font-size: var(--zoen-text);
+    letter-spacing: var(--zoen-track);
+    line-height: 1.4;
+    color: var(--zoen-mute);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+    overflow: hidden;
+}
+
+.zoen-project-media {
+    grid-area: media;
+    position: relative;
+    align-self: stretch;
+    justify-self: stretch;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: hidden;
+}
+
+/* Project gallery - one slide per frame, arrows over the media. */
+.zoen-gallery {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.zoen-gallery-track {
+    display: flex;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+}
+
+.zoen-gallery-track::-webkit-scrollbar {
+    display: none;
+}
+
+.zoen-gallery-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    min-width: 0;
+}
+
+.zoen-gallery-slide img,
+.zoen-gallery-slide video {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border: 1px solid color-mix(in srgb, var(--zoen-line) 35%, transparent);
+}
+
+.zoen-gallery-slide video {
+    width: 100%;
+    background: #000;
+}
+
+.zoen-gallery-slide img {
+    filter: grayscale(1) contrast(1.08);
+    transition: filter 0.55s ease;
+}
+
+.zoen-gallery:hover .zoen-gallery-slide img {
+    filter: grayscale(0) contrast(1.02);
+}
+
+.zoen-gallery-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    transform: translateY(-50%);
+    width: clamp(2.2rem, 5vh, 2.9rem);
+    height: clamp(2.2rem, 5vh, 2.9rem);
+    border: 1px solid var(--zoen-ink);
+    background: color-mix(in srgb, var(--zoen-bg) 82%, transparent);
+    color: var(--zoen-ink);
+    font-family: inherit;
+    font-size: 1.05rem;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.zoen-gallery-nav:hover:not(:disabled) {
+    background: var(--zoen-accent);
+    border-color: var(--zoen-accent);
+    color: #fff;
+}
+
+.zoen-gallery-nav:disabled {
+    opacity: 0.25;
+    cursor: default;
+}
+
+.zoen-gallery-nav[hidden] {
+    display: none;
+}
+
+.zoen-gallery-nav--prev { left: 0.5rem; }
+.zoen-gallery-nav--next { right: 0.5rem; }
+
+.zoen-gallery-counter {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: var(--zoen-label);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--zoen-mute);
+}
+
+/* Footer sheet. */
+.zoen-footer {
+    position: relative;
+    padding: clamp(3rem, 8vw, 6rem) var(--zoen-pad);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    border-top: 1px solid var(--zoen-line);
+}
+
+.zoen-footer-credito {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    white-space: pre-line;
+}
+
+.zoen-footer-credito a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+}
+
+.zoen-footer-credito a:hover {
+    color: var(--zoen-accent);
+}
+
+.zoen-footer-nota {
+    font-size: var(--zoen-text);
+    letter-spacing: var(--zoen-track);
+    line-height: 1.5;
+    color: var(--zoen-mute);
+    align-self: end;
+    max-width: 64ch;
+}
+
+/* Subtexts - Courier for kicker, meta, facts, body copy and index labels. */
+.zoen-hero-head,
+.zoen-meta-block dt,
+.zoen-meta-block dd,
+.zoen-hero-lead,
+.zoen-index,
+.zoen-project-code,
+.zoen-project-facts,
+.zoen-project-body p,
+.zoen-footer-nota,
+.zoen-gallery-counter {
+    font-family: var(--zoen-font-sub);
+}
+
+/* Reveal motion - presence without noise. */
+.zoen-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.zoen-reveal.is-in {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 900px) {
+    .zoen-hero {
+        height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
+        padding-top: calc(2.8rem + env(safe-area-inset-top, 0px));
+    }
+
+    .zoen-portal {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    }
+
+    .zoen-portal-media {
+        border-left: none;
+        border-top: 1px solid var(--zoen-line);
+        min-height: 0;
+    }
+
+    .zoen-hero-stills {
+        grid-auto-columns: 50cqh;
+    }
+
+    .zoen-hero-display {
+        font-size: clamp(2.6rem, 11vh, 4.4rem);
+        padding-right: 2rem;
+    }
+
+    .zoen-hero-brand h1,
+    .zoen-hero-cruz {
+        font-size: clamp(3.4rem, 14vh, 6rem);
+        line-height: 0.72;
+    }
+
+    .zoen-hero-meta {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.45rem 0.75rem;
+    }
+
+    .zoen-hero-meta .zoen-meta-block:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .zoen-hero-lead {
+        -webkit-line-clamp: 2;
+    }
+
+    .zoen-portal-badge {
+        width: 1.7rem;
+        height: 1.7rem;
+        font-size: 0.62rem;
+    }
+
+    .zoen-stills-nav {
+        width: 2.35rem;
+        height: 2.35rem;
+    }
+
+    .zoen-project {
+        height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        grid-template-areas:
+            "head"
+            "media"
+            "body";
+        align-items: stretch;
+        padding-top: clamp(1.2rem, 3vh, 2rem);
+    }
+
+    .zoen-project--landscape,
+    .zoen-project--portrait {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        grid-template-areas:
+            "head"
+            "media"
+            "body";
+    }
+
+    .zoen-project-media {
+        width: 100%;
+        max-height: none;
+        min-height: 0;
+    }
+
+    .zoen-project-body p {
+        -webkit-line-clamp: 4;
+    }
+
+    .zoen-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .zoen-top {
+        mix-blend-mode: normal;
+        color: var(--zoen-ink);
+        background: color-mix(in srgb, var(--zoen-bg) 88%, transparent);
+        backdrop-filter: blur(6px);
+    }
+}
+
+/* Fallback when container queries unavailable - approximate tiles. */
+@supports not (width: 1cqh) {
+    .zoen-hero-stills {
+        grid-auto-columns: clamp(110px, 28vh, 200px);
+    }
+}

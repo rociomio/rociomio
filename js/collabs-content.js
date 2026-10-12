@@ -30,6 +30,23 @@ window.COLLABS_CONTENT = {
 // Artistas - id = carpeta en collabs/
 window.COLLABS_ARTISTS = [
   {
+    id: "zoen-calega",
+    nombre: "Zoen Calega",
+    // Pagina dedicada - estetica studio / productora (no portal Courier).
+    pageHref: "zoen calega/index.html",
+    rol: {
+      es: "Artista audiovisual · eventos e instalaciones",
+      en: "Audiovisual artist · events and installations",
+    },
+    texto: {
+      es: "Colaboracion de produccion audiovisual: instalaciones multi-monitor CRT, direccion visual en vivo y montaje de entornos para eventos. Abrir el dossier de estudio para ver el portfolio de productora.",
+      en: "Audiovisual production collaboration: multi-monitor CRT installations, live visual direction and event environment builds. Open the studio dossier to see the production portfolio.",
+    },
+    obras: [
+      { src: "zoen calega/Decentraland/web/casa-futuro-buenos-aires.webp", alt: "Casa Futuro" },
+    ],
+  },
+  {
     id: "ohde",
     nombre: "Clara Ohde",
     rol: {
