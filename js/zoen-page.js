@@ -74,6 +74,49 @@
             </figure>`;
     }
 
+    // Gallery autoplay config - interval and registry of rendered project galleries.
+    const AUTOPLAY_MS = 3000;
+    const AUTOPLAY_MIN_VISIBLE = 0.5;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let galleries = [];
+    let activeGallery = null;
+
+    // Autoplay focus - the gallery most visible in the viewport (at least half on screen).
+    function pickActiveGallery() {
+        const vh = window.innerHeight;
+        let best = null;
+        let bestRatio = AUTOPLAY_MIN_VISIBLE;
+        galleries.forEach((g) => {
+            if (!g.track.isConnected) return;
+            const r = g.track.getBoundingClientRect();
+            if (!r.height) return;
+            const ratio = (Math.min(r.bottom, vh) - Math.max(r.top, 0)) / r.height;
+            if (ratio >= bestRatio) {
+                best = g;
+                bestRatio = ratio;
+            }
+        });
+        return best;
+    }
+
+    // Autoplay tick - advance only the gallery in view; hold while its video is playing.
+    function autoplayTick() {
+        if (document.hidden) return;
+        const g = pickActiveGallery();
+        const now = Date.now();
+        if (g !== activeGallery) {
+            activeGallery = g;
+            if (g) g.lastMove = now;
+            return;
+        }
+        if (!g) return;
+        if (g.isPlaying()) {
+            g.lastMove = now;
+            return;
+        }
+        if (now - g.lastMove >= AUTOPLAY_MS) g.advance();
+    }
+
     // Project sheets - header, facts, gallery and copy per folder.
     function renderProjects() {
         if (!root) return;
@@ -81,6 +124,8 @@
         const labels = content().factsLabels || {};
         const galeria = content().galeria || {};
         root.innerHTML = "";
+        galleries = [];
+        activeGallery = null;
 
         projects.forEach((project, index) => {
             const code = projectCode(index);
@@ -167,14 +212,34 @@
             track.scrollTo({ left: target * track.clientWidth, behavior: "smooth" });
         }
 
+        // Autoplay entry - next slide (wraps to first), playing-video check, last movement time.
+        const entry = {
+            track,
+            lastMove: Date.now(),
+            advance() {
+                const i = current();
+                const target = i >= total - 1 ? 0 : i + 1;
+                entry.lastMove = Date.now();
+                track.scrollTo({ left: target * track.clientWidth, behavior: reduceMotion ? "auto" : "smooth" });
+            },
+            isPlaying() {
+                return Array.prototype.some.call(track.querySelectorAll("video"), (v) => !v.paused && !v.ended);
+            },
+        };
+
         prev?.addEventListener("click", () => go(-1));
         next?.addEventListener("click", () => go(1));
-        track.addEventListener("scroll", update, { passive: true });
+        track.addEventListener("scroll", () => {
+            entry.lastMove = Date.now();
+            update();
+        }, { passive: true });
         window.addEventListener("resize", update);
 
         if (total <= 1) {
             prev?.setAttribute("hidden", "");
             next?.setAttribute("hidden", "");
+        } else {
+            galleries.push(entry);
         }
         update();
     }
@@ -395,6 +460,7 @@
     function init() {
         refreshI18nSurface();
         document.querySelector(".zoen-hero")?.classList.add("zoen-reveal", "is-in");
+        window.setInterval(autoplayTick, 400);
     }
 
     if (document.readyState === "loading") {

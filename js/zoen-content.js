@@ -176,6 +176,7 @@ window.ZOEN_CONTENT = {
       id: "exhibiciones",
       carpeta: "exhibiciones",
       showLabels: true,
+      orden: ["rgb montreal"],
       titulo: { es: "EXHIBICIONES", en: "EXHIBITIONS" },
       lugar: { es: "Buenos Aires · La Pampa · NYC · Montreal", en: "Buenos Aires · La Pampa · NYC · Montreal" },
       anio: "",
