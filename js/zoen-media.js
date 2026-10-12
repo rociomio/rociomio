@@ -162,10 +162,10 @@ window.ZOEN_MEDIA = {
     },
     {
       "type": "image",
-      "src": "exhibiciones/web/captura-de-pantalla-2026-10-11-204623.webp",
+      "src": "exhibiciones/web/rgb-montreal.webp",
       "w": 1600,
       "h": 921,
-      "label": "rgbmtl"
+      "label": "rgb montreal"
     },
     {
       "type": "video",
