@@ -230,6 +230,33 @@ window.ZOEN_CONTENT = {
       },
     ],
   },
+  // Presupuesto - textos del formulario de contacto (envio via FormSubmit).
+  presupuesto: {
+    kicker: { es: "Contacto", en: "Contact" },
+    titulo: { es: "Pedir presupuesto", en: "Request a quote" },
+    intro: {
+      es: "Contanos sobre tu evento y te respondemos con una propuesta a medida.",
+      en: "Tell us about your event and we will reply with a tailored proposal.",
+    },
+    nombre: { es: "Nombre", en: "Name" },
+    email: { es: "Mail de contacto", en: "Contact email" },
+    mensaje: { es: "Tu evento", en: "Your event" },
+    mensajePlaceholder: {
+      es: "Describi el tipo de evento, la fecha, el lugar y lo que imaginas (cantidad de pantallas, duracion, etc.)",
+      en: "Describe the type of event, the date, the venue and what you have in mind (number of screens, duration, etc.)",
+    },
+    enviar: { es: "Enviar", en: "Send" },
+    enviando: { es: "Enviando...", en: "Sending..." },
+    ok: {
+      es: "Gracias, recibimos tu mensaje. Te respondemos a la brevedad.",
+      en: "Thanks, we got your message. We will get back to you soon.",
+    },
+    error: {
+      es: "No se pudo enviar. Proba de nuevo o escribinos a bosquegracias@gmail.com",
+      en: "Could not send. Try again or write to bosquegracias@gmail.com",
+    },
+    asunto: "Pedido de presupuesto - Mucha Tele (Rocio Mio + Zoen Calega)",
+  },
 };
 
 window.PAGE_I18N_CONTENT = window.ZOEN_CONTENT;

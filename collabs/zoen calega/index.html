@@ -70,11 +70,41 @@
             </p>
             <p class="zoen-footer-nota" data-zoen="footer.nota"></p>
         </footer>
+
+        <section class="zoen-quote" id="presupuesto" aria-labelledby="zoenQuoteTitle">
+            <span class="zoen-mark zoen-mark--tl" aria-hidden="true"></span>
+            <span class="zoen-mark zoen-mark--br" aria-hidden="true"></span>
+            <div class="zoen-quote-head">
+                <p class="zoen-quote-kicker" data-zoen="presupuesto.kicker">Contacto</p>
+                <h2 class="zoen-quote-title" id="zoenQuoteTitle" data-zoen="presupuesto.titulo">Pedir presupuesto</h2>
+                <p class="zoen-quote-intro" data-zoen="presupuesto.intro">Contanos sobre tu evento y te respondemos con una propuesta a medida.</p>
+            </div>
+            <form class="zoen-quote-form" id="zoenQuoteForm" novalidate>
+                <label class="zoen-quote-field">
+                    <span data-zoen="presupuesto.nombre">Nombre</span>
+                    <input type="text" name="nombre" autocomplete="name" required>
+                </label>
+                <label class="zoen-quote-field">
+                    <span data-zoen="presupuesto.email">Mail de contacto</span>
+                    <input type="email" name="email" autocomplete="email" required>
+                </label>
+                <label class="zoen-quote-field zoen-quote-field--full">
+                    <span data-zoen="presupuesto.mensaje">Tu evento</span>
+                    <textarea name="mensaje" rows="6" required data-zoen-placeholder="presupuesto.mensajePlaceholder"></textarea>
+                </label>
+                <input type="text" name="_honey" class="zoen-quote-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <div class="zoen-quote-actions">
+                    <button type="submit" class="zoen-quote-send" data-zoen="presupuesto.enviar">Enviar</button>
+                    <p class="zoen-quote-status" id="zoenQuoteStatus" role="status" aria-live="polite"></p>
+                </div>
+            </form>
+        </section>
     </main>
 
     <script src="../../js/zoen-media.js"></script>
     <script src="../../js/zoen-content.js"></script>
     <script src="../../js/site-i18n.js"></script>
     <script src="../../js/zoen-page.js"></script>
+    <script src="../../js/zoen-quote.js"></script>
 </body>
 </html>

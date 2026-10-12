@@ -382,6 +382,12 @@
                 el.textContent = value;
             }
         });
+
+        // Placeholders - translated hint text on form fields.
+        document.querySelectorAll("[data-zoen-placeholder]").forEach((el) => {
+            const node = resolvePath(el.getAttribute("data-zoen-placeholder"));
+            if (node != null) el.placeholder = t(node);
+        });
     }
 
     document.addEventListener("site:langchange", refreshI18nSurface);
