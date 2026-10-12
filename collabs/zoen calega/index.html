@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoen Calega × Rocio Mio | Produccion visual</title>
+    <meta name="description" content="Dossier de produccion audiovisual: instalaciones CRT, eventos y sistemas visuales. Rocio Mio × Zoen Calega.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/serie-i18n.css">
+    <link rel="stylesheet" href="../../css/zoen-studio.css">
+</head>
+<body class="zoen-body">
+
+    <header class="zoen-top">
+        <div class="zoen-top-links">
+            <a href="../../index.html#index" data-i18n="nav.volver">[ VOLVER AL ORIGEN ]</a>
+            <a href="../index.html" data-i18n="nav.collabs">[ COLABORACIONES ]</a>
+        </div>
+        <div class="zoen-lang serie-lang-toggle" role="group" aria-label="Idioma">
+            <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+            <span class="zoen-lang-sep serie-lang-sep">|</span>
+            <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="zoen-hero" aria-label="Studio dossier">
+            <div class="zoen-hero-head">
+                <span data-zoen="hero.kicker">STUDIO DOSSIER · 01</span>
+                <span class="zoen-hero-marca" data-zoen="hero.marca">RM × ZC</span>
+            </div>
+
+            <div class="zoen-portal">
+                <div class="zoen-portal-text">
+                    <span class="zoen-portal-badge" aria-hidden="true">01</span>
+                    <p class="zoen-hero-display" data-zoen="hero.display" data-zoen-html>mucha<br>tele</p>
+                    <div class="zoen-hero-brand">
+                        <h1 data-zoen="hero.titulo">ROCIO MIO +</h1>
+                        <span class="zoen-hero-cruz" data-zoen="hero.cruz">ZOEN CALEGA</span>
+                        <p class="zoen-hero-linea" data-zoen="hero.linea">instalaciones + experiencias visuales</p>
+                    </div>
+                    <dl class="zoen-hero-meta" id="zoenMeta"></dl>
+                    <p class="zoen-hero-lead" data-zoen="hero.lead">Produccion para eventos e instalaciones visuales de tvs</p>
+                    <a class="zoen-portal-arrow" href="#zoenProjects" aria-label="Ver proyectos">→</a>
+                </div>
+
+                <div class="zoen-portal-media">
+                    <button type="button" class="zoen-stills-nav zoen-stills-nav--prev" id="zoenStillsPrev" aria-label="Imagenes anteriores">←</button>
+                    <div class="zoen-hero-stills" id="zoenStills" aria-label="Pantallazo de proyectos"></div>
+                    <button type="button" class="zoen-stills-nav zoen-stills-nav--next" id="zoenStillsNext" aria-label="Imagenes siguientes">→</button>
+                </div>
+            </div>
+        </section>
+
+        <nav class="zoen-index" aria-label="Indice de obras">
+            <span class="zoen-index-label" data-zoen="indexLabel">INDICE DE OBRAS</span>
+            <div id="zoenIndexList"></div>
+        </nav>
+
+        <div id="zoenProjects"></div>
+
+        <footer class="zoen-footer">
+            <span class="zoen-mark zoen-mark--tl" aria-hidden="true"></span>
+            <span class="zoen-mark zoen-mark--br" aria-hidden="true"></span>
+            <p class="zoen-footer-credito" id="zoenCreditos">
+                <a href="https://rociomio.github.io/rociomio/">Rocio Mio</a> · Direccion de arte · visuales analogicas y generativas · audiovisual<br>
+                <a href="https://www.instagram.com/zoen_calega/" target="_blank" rel="noopener">Zoen Calega</a> · Productor audiovisual · visuales analogicas, generativas y livecoding
+            </p>
+            <p class="zoen-footer-nota" data-zoen="footer.nota"></p>
+        </footer>
+    </main>
+
+    <script src="../../js/zoen-media.js"></script>
+    <script src="../../js/zoen-content.js"></script>
+    <script src="../../js/site-i18n.js"></script>
+    <script src="../../js/zoen-page.js"></script>
+</body>
+</html>
