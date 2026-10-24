@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Live at the bottom of the sea | Rocio Mio</title>
+    <link rel="preload" as="image" href="thumbs/02-make-the-seaweed-dance.jpg">
+    <link rel="stylesheet" href="../css/serie-i18n.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        html, body {
+            background-color: #000000;
+            color: #ffffff;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Page shell - gallery scrolls; footer stays docked below */
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .galeria-horizontal {
+            flex: 1 1 auto;
+            min-height: 0;
+            width: 100vw;
+            display: flex;
+            align-items: flex-start;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+            padding: 3vh 5vw 1.5vh;
+            gap: 2vw;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .galeria-horizontal::-webkit-scrollbar { display: none; }
+
+        .item-media {
+            height: 100%;
+            min-width: 42vw;
+            flex-shrink: 0;
+            scroll-snap-align: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #000000;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .item-stage {
+            position: relative;
+            height: calc(100% - 3.2rem);
+            width: auto;
+            max-width: 90vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .item-poster {
+            height: 100%;
+            width: auto;
+            max-width: 90vw;
+            min-height: 120px;
+            object-fit: contain;
+            display: block;
+            border-radius: 2px;
+            background: #0a0a0a;
+        }
+
+        .item-video {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 2px;
+            background: #000;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .item-media.is-playing .item-poster,
+        .item-media.is-loading .item-poster {
+            opacity: 0;
+        }
+
+        .item-media.is-playing .item-video,
+        .item-media.is-loading .item-video {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .btn-play {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.25s ease, transform 0.25s ease;
+            z-index: 2;
+        }
+
+        .btn-play:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .btn-play-icon {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 16px;
+            border-color: transparent transparent transparent #fff;
+            margin-left: 3px;
+        }
+
+        .item-media.is-loading .btn-play {
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .item-caption {
+            margin-top: 10px;
+            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            max-width: 90%;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+
+        .item-objkt-hint {
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 4px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+            text-decoration: none;
+        }
+
+        .item-objkt-hint:hover {
+            color: #ffffff;
+        }
+
+        .menu-inferior {
+            flex: 0 0 auto;
+            position: relative;
+            width: 100vw;
+            padding: 16px 5vw 18px;
+            z-index: 100;
+            background: #000000;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-volver {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: opacity 0.3s;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .btn-volver:hover { opacity: 0.5; }
+
+        .titulo-serie {
+            font-size: clamp(0.95rem, 1.7vw, 1.5rem);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: normal;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            flex: 1 1 100%;
+        }
+
+        .serie-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .texto-concepto {
+            max-width: 720px;
+            font-size: clamp(0.75rem, 1vw, 0.95rem);
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+
+        .texto-concepto p + p { margin-top: 8px; }
+
+        .scroll-hint-horizontal {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #aaaaaa;
+            margin-top: 4px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .link-objkt {
+            display: inline-block;
+            margin-top: 12px;
+            color: #ffffff;
+            text-decoration: none;
+            border: 1px solid #ffffff;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-shadow: none;
+        }
+
+        .link-objkt:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        @media (max-width: 768px) {
+            .galeria-horizontal { padding-top: 2vh; }
+            .menu-inferior { padding: 14px 4vw 16px; }
+            .item-media { min-width: 78vw; }
+            .btn-play { width: 56px; height: 56px; }
+            .texto-concepto { font-size: 0.72rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="galeria-horizontal" id="galeriaHorizontal" aria-label="Galeria Live at the bottom of the sea"></main>
+
+    <footer class="menu-inferior">
+        <div class="header-top-row">
+            <h1 class="titulo-serie">Live at the bottom of the sea</h1>
+            <div class="serie-nav-actions">
+                <div class="serie-lang-toggle serie-lang-toggle--dark" role="group" aria-label="Idioma">
+                    <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+                    <span class="serie-lang-sep">|</span>
+                    <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+                </div>
+                <a href="../index.html#index" class="btn-volver" data-i18n="volver">[ VOLVER AL ORIGEN ]</a>
+            </div>
+        </div>
+        <div class="texto-concepto" data-i18n-html="liveSeaIntro">
+            <p>Audio grabado en performance con pocket operator arcade. Visual creado con inputs de la expedicion en Mar del Plata, fondo del oceano en Argentina, glitcheado con maquinas analogicas, filmado en CRT por Rocio Mio en Patagonia.</p>
+            <p>Cortometrajes experimentales que mezclan el fondo del oceano con el fondo de mis deseos, haciendo musica y visuales al mismo tiempo.</p>
+            <p>sept. 2025</p>
+        </div>
+        <a href="https://objkt.com/collections/KT1Q4XJL7Y9jStWCXsfTTT1RvLNL5j31wU63" target="_blank" rel="noopener" class="link-objkt" data-i18n="collectObjkt">collect at objkt</a>
+        <span class="scroll-hint-horizontal" data-i18n="scrollVideos">→ gira la rueda · play carga el video</span>
+    </footer>
+
+    <script src="../js/live-sea-data.js"></script>
+    <script src="../js/videopoetry-player.js"></script>
+    <script src="../js/series-ui-content.js"></script>
+    <script src="../js/site-i18n.js"></script>
+    <script src="../js/galeria-horizontal.js?v=8"></script>
+</body>
+</html>

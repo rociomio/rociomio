@@ -27,5 +27,11 @@ optimize-report.json
 *.tiff
 *.bmp
 
+# Videos originales de Live at the bottom of the sea (superan el limite de GitHub)
+live at the bottom of the sea/*.mp4
+
+# Soundtrack extraido para otro proyecto (no publicar en Pages)
+live at the bottom of the sea/audio/
+
 # Node (por si se agrega tooling)
 node_modules/

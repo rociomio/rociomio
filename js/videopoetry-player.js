@@ -1,10 +1,22 @@
 /**
- * Videopoetry gallery - poster + play; video src loads only on user play.
+ * Horizontal video gallery - poster + play; src loads only on user play.
+ * Shared by Videopoetry and Live at the bottom of the sea.
  */
 (function () {
-    const items = window.VIDEOPOETRY_ITEMS;
+    const items = window.VIDEO_SERIES_ITEMS || window.VIDEOPOETRY_ITEMS;
     const gallery = document.getElementById("galeriaHorizontal");
-    if (!items || !gallery || typeof window.videopoetryArtifactUrl !== "function") return;
+    if (!items || !gallery) return;
+
+    // Artifact URL helper - objkt CDN, with local src as fallback.
+    function mediaUrl(entry) {
+        if (entry.artifact && typeof window.videopoetryArtifactUrl === "function") {
+            return window.videopoetryArtifactUrl(entry.artifact);
+        }
+        if (entry.artifact) {
+            return "https://assets.objkt.media/file/assets-003/" + entry.artifact + "/artifact";
+        }
+        return entry.src || "";
+    }
 
     let activeVideo = null;
 
@@ -80,7 +92,7 @@
     function createItem(entry, index) {
         const article = document.createElement("article");
         article.className = "item-media";
-        article.setAttribute("data-video", window.videopoetryArtifactUrl(entry.artifact));
+        article.setAttribute("data-video", mediaUrl(entry));
         article.setAttribute("data-objkt", entry.url);
 
         const stage = document.createElement("div");
@@ -91,7 +103,7 @@
         poster.src = entry.thumb;
         poster.alt = entry.name;
         poster.decoding = "async";
-        poster.loading = index < 2 ? "eager" : "lazy";
+        poster.loading = index < 2 || items.length <= 6 ? "eager" : "lazy";
 
         const video = document.createElement("video");
         video.className = "item-video";

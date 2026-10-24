@@ -10,6 +10,7 @@
         'ruedas de energia/Mercado.webp',
         'ruedas de energia/Migration.webp',
         'videopoetry/portada videopoetry.webp',
+        'live at the bottom of the sea/portada.jpg',
         'mixed faces/Annunciation Details.webp',
         'mixed faces/Buttler make the house bigger.webp',
         'mixed faces/Gamers.webp',

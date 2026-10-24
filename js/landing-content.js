@@ -21,6 +21,7 @@ window.LANDING_CONTENT = {
   series: {
     prev: { es: "Serie anterior", en: "Previous series" },
     next: { es: "Serie siguiente", en: "Next series" },
+    liveSea: { es: "Video · pocket operator · CRT · oceano", en: "Video · pocket operator · CRT · ocean" },
     videopoetry: { es: "Video · poesia · codigo · glitch analogico", en: "Video · poetry · code · analog glitch" },
     energyWheels: { es: "Cianotipo · bordado · archivo familiar", en: "Cyanotype · embroidery · family archive" },
     mixedFaces: { es: "Diapositivas · collage · archivo encontrado", en: "Slides · collage · found archive" },
