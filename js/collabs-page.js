@@ -34,6 +34,9 @@
     }
 
     function encodeSrc(path) {
+        if (!path) return "";
+        // Absolute URLs - leave external collab sites untouched.
+        if (/^https?:\/\//i.test(path)) return path;
         return path
             .split("/")
             .map((part) => encodeURIComponent(part))
@@ -59,6 +62,10 @@
                 link.href = encodeSrc(artist.pageHref);
                 link.textContent = artist.nombre;
                 link.setAttribute("data-artist", artist.id);
+                if (/^https?:\/\//i.test(artist.pageHref)) {
+                    link.target = "_blank";
+                    link.rel = "noopener";
+                }
                 listaEl.appendChild(link);
                 return;
             }

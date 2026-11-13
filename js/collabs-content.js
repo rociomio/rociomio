@@ -30,6 +30,23 @@ window.COLLABS_CONTENT = {
 // Artistas - id = carpeta en collabs/
 window.COLLABS_ARTISTS = [
   {
+    id: "ocupadas",
+    nombre: "Ocupadas",
+    // Sitio dedicado - performance Maia Koenig x Rocio Mio.
+    pageHref: "https://rociomio.github.io/ocupadas/#obra",
+    rol: {
+      es: "Maia Koenig + RocioMio · Performance · Patagonia",
+      en: "Maia Koenig + RocioMio · Performance · Patagonia",
+    },
+    texto: {
+      es: "Ocupadas es una performance audiovisual con Maia Koenig: sonido, camara en vivo y visuales glitch en escena. Abrir el sitio dedicado para ver la obra.",
+      en: "Ocupadas is an audiovisual performance with Maia Koenig: sound, live camera and glitch visuals on stage. Open the dedicated site to see the work.",
+    },
+    obras: [
+      { src: "ocupadas/portada.webp", alt: "Ocupadas - Performance Patagonia" },
+    ],
+  },
+  {
     id: "zoen-calega",
     nombre: "Zoen Calega",
     // Pagina dedicada - estetica studio / productora (no portal Courier).
