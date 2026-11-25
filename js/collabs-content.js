@@ -33,7 +33,7 @@ window.COLLABS_ARTISTS = [
     id: "ocupadas",
     nombre: "Ocupadas",
     // Sitio dedicado - performance Maia Koenig x Rocio Mio.
-    pageHref: "https://rociomio.github.io/ocupadas/#obra",
+    pageHref: "https://rociomio.github.io/ocupadas/",
     rol: {
       es: "Maia Koenig + RocioMio · Performance · Patagonia",
       en: "Maia Koenig + RocioMio · Performance · Patagonia",
